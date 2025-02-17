@@ -1,0 +1,4 @@
+// app/robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://techero.xyz/sitemap.xml

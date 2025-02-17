@@ -1,101 +1,151 @@
-import Image from "next/image";
+'use client'
 
+import React, { useState } from 'react';
+import { ArrowRight, Check } from 'lucide-react';
+import Image from 'next/image';
+import Header from './landing/Header';
+import Footer from './landing/Footer';
+import ContactForm from './landing/contactform';
+
+// Rimuoviamo handleFormSubmit poiché il form gestisce internamente i dati
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Header onContactClick={() => setIsFormOpen(true)} />
+      
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-6">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl font-medium tracking-tight mb-6 max-w-2xl">
+                Progetti tech da Zero a Hero
+              </h1>
+              <p className="text-lg text-white/60 mb-8 max-w-xl">
+                Project management specializzato per trasformare le tue idee in prodotti tech completi. Performanti. Fighi.
+              </p>
+              <button 
+                onClick={() => setIsFormOpen(true)}
+                className="bg-white text-black px-6 py-3 inline-flex items-center gap-2 hover:bg-white/90 transition-colors rounded"
+              >
+                Inizia il tuo progetto <ArrowRight size={18} />
+              </button>
+            </div>
+            <div className="relative w-full aspect-square md:aspect-video">
+              <Image
+                src="/animated-gifs01.gif"
+                alt="Tech Hero Animation"
+                fill
+                className="object-cover object-center rounded border border-white/[.1] hover:border-white/20 transition-colors"
+                priority
+              />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-20 px-6 border-t border-white/[.1]">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+                <Check size={20} className="text-white/40" />
+                Qualità del Risultato
+              </h3>
+              <p className="text-white/60">
+                Garantiamo l&apos;eccellenza in ogni fase del progetto, dalla pianificazione alla consegna finale.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+                <Check size={20} className="text-white/40" />
+                Ordine e Metodo
+              </h3>
+              <p className="text-white/60">
+                Strutturiamo ogni processo con metodologia e precisione per garantire efficienza e trasparenza.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
+                <Check size={20} className="text-white/40" />
+                Comunicazione Efficace
+              </h3>
+              <p className="text-white/60">
+                Aggiornamenti costanti e comunicazione trasparente sullo stato di avanzamento del progetto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 px-6 border-t border-white/[.1]">
+        <div className="max-w-screen-xl mx-auto">
+          <h2 className="text-3xl font-medium mb-12">I Nostri Servizi</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
+              <h3 className="text-lg font-medium mb-4">Analisi e Fattibilità</h3>
+              <p className="text-white/60 mb-6">
+                Analisi preliminare del progetto, definizione delle risorse necessarie e tempistiche.
+              </p>
+              <p className="text-2xl font-medium mb-2">€1.500</p>
+              <p className="text-sm text-white/40 mb-6">+ IVA • 5 giorni lavorativi</p>
+            </div>
+            
+            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
+              <h3 className="text-lg font-medium mb-4">Selezione Fornitori</h3>
+              <p className="text-white/60 mb-6">
+                Ricerca e selezione dei migliori professionisti per il tuo progetto.
+              </p>
+              <p className="text-2xl font-medium">€1.500</p>
+              <p className="text-sm text-white/40">+ IVA • 10 giorni lavorativi</p>
+            </div>
+
+            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
+              <h3 className="text-lg font-medium mb-4">Esecuzione, sviluppo e delivery</h3>
+              <p className="text-white/60 mb-6">
+                Supervisione continua del team di sviluppo, controllo qualità e consegna finale.
+              </p>
+              <p className="text-2xl font-medium">3%</p>
+              <p className="text-sm text-white/40">del valore totale (min. €1.500 + IVA)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 px-6 border-t border-white/[.1]">
+        <div className="max-w-screen-xl mx-auto">
+          <h2 className="text-3xl font-medium mb-12">FAQ</h2>
+          <div className="max-w-2xl space-y-12">
+            <div>
+              <h3 className="text-lg font-medium mb-3">Siete sviluppatori?</h3>
+              <p className="text-white/60">
+                No, non siamo sviluppatori. Siamo consulenti specializzati nella gestione di progetti tech. 
+                Il nostro ruolo è quello di guidare e coordinare il processo di sviluppo, selezionando i 
+                migliori professionisti per ogni aspetto del progetto.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-3">Come funziona il processo?</h3>
+              <p className="text-white/60">
+                Iniziamo con un&apos;analisi dettagliata del tuo progetto, definiamo le risorse necessarie, 
+                selezioniamo i fornitori più adatti e monitoriamo l&apos;intero processo di sviluppo fino alla 
+                consegna finale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer onContactClick={() => setIsFormOpen(true)} />
+      <ContactForm 
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+      />
     </div>
   );
 }
