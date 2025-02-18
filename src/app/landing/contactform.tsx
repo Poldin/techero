@@ -119,7 +119,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ isOpen, onClose }) => 
 
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 rounded">
-      <div className="bg-gray-900 border border-white/[.1] w-full max-w-md p-8 relative rounded min-w-[60vw] max-h-screen overflow-y-auto">
+      <div className="bg-gray-900 border border-white/[.1] w-full max-w-md p-8 relative rounded min-w-[60vw] max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
