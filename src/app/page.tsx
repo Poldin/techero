@@ -105,6 +105,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 px-6 border-t border-white/[.1]">
+        <div className="max-w-screen-xl mx-auto">
+          <h2 className="text-3xl font-medium mb-12">I Nostri Servizi</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
+              <h3 className="text-lg font-medium mb-4">Analisi e Fattibilità</h3>
+              <p className="text-white/60 mb-6">
+                Analisi preliminare del progetto, definizione delle risorse necessarie e tempistiche.
+              </p>
+              <p className="text-2xl font-medium mb-2">€1.500</p>
+              <p className="text-sm text-white/40 mb-6">+ IVA • 5 giorni lavorativi</p>
+            </div>
+            
+            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
+              <h3 className="text-lg font-medium mb-4">Selezione Fornitori</h3>
+              <p className="text-white/60 mb-6">
+                Ricerca e selezione dei migliori professionisti per il tuo progetto.
+              </p>
+              <p className="text-2xl font-medium">€1.500</p>
+              <p className="text-sm text-white/40">+ IVA • 10 giorni lavorativi</p>
+            </div>
+
+            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
+              <h3 className="text-lg font-medium mb-4">Esecuzione, sviluppo e delivery</h3>
+              <p className="text-white/60 mb-6">
+                Supervisione continua del team di sviluppo, controllo qualità e consegna finale.
+              </p>
+              <p className="text-2xl font-medium">12%</p>
+              <p className="text-sm text-white/40">del valore totale (min. €2.500 + IVA)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="py-20 px-6 border-t border-white/[.1]">
         <div className="max-w-screen-xl mx-auto">
@@ -174,41 +209,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6 border-t border-white/[.1]">
-        <div className="max-w-screen-xl mx-auto">
-          <h2 className="text-3xl font-medium mb-12">I Nostri Servizi</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
-              <h3 className="text-lg font-medium mb-4">Analisi e Fattibilità</h3>
-              <p className="text-white/60 mb-6">
-                Analisi preliminare del progetto, definizione delle risorse necessarie e tempistiche.
-              </p>
-              <p className="text-2xl font-medium mb-2">€1.500</p>
-              <p className="text-sm text-white/40 mb-6">+ IVA • 5 giorni lavorativi</p>
-            </div>
-            
-            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
-              <h3 className="text-lg font-medium mb-4">Selezione Fornitori</h3>
-              <p className="text-white/60 mb-6">
-                Ricerca e selezione dei migliori professionisti per il tuo progetto.
-              </p>
-              <p className="text-2xl font-medium">€1.500</p>
-              <p className="text-sm text-white/40">+ IVA • 10 giorni lavorativi</p>
-            </div>
-
-            <div className="border border-white/[.1] p-6 hover:border-white/20 transition-colors rounded">
-              <h3 className="text-lg font-medium mb-4">Esecuzione, sviluppo e delivery</h3>
-              <p className="text-white/60 mb-6">
-                Supervisione continua del team di sviluppo, controllo qualità e consegna finale.
-              </p>
-              <p className="text-2xl font-medium">12%</p>
-              <p className="text-sm text-white/40">del valore totale (min. €2.500 + IVA)</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 px-6 border-t border-white/[.1]">
