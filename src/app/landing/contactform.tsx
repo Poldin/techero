@@ -21,7 +21,7 @@ const SERVICES: Service[] = [
   {
     id: 'monitoring',
     title: 'Esecuzione, sviluppo e delivery',
-    price: '3% del valore totale'
+    price: '12% del valore totale'
   }
 ];
 

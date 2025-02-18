@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Header from './landing/Header';
 import Footer from './landing/Footer';
 import ContactForm from './landing/contactform';
+import Link from 'next/link';
+
 
 // Rimuoviamo handleFormSubmit poiché il form gestisce internamente i dati
 export default function Home() {
@@ -46,6 +48,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pain & Relief Section */}
+      <section className="py-20 px-6 border-t border-white/[.1] bg-gray-800">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Pain Points Column */}
+            <div className="p-8 bg-gray-900 rounded border border-red-500/20 hover:border-red-500/40 transition-colors duration-300">
+              <h2 className="text-2xl font-medium mb-6 text-red-400">
+                Le sfide dei progetti tech
+              </h2>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-red-400 mt-1">•</span>
+                  <p>Progetti che si trascinano senza una fine apparente, consumando tempo e risorse preziose</p>
+                </li>
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-red-400 mt-1">•</span>
+                  <p>Budget che sfuggono al controllo, con costi che continuano ad aumentare senza risultati tangibili</p>
+                </li>
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-red-400 mt-1">•</span>
+                  <p>Frustrazione crescente dovuta a decisioni tecniche prese senza la giusta esperienza</p>
+                </li>
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-red-400 mt-1">•</span>
+                  <p>Risultati finali che non rispecchiano la visione iniziale del progetto</p>
+                </li>
+              </ul>
+            </div>
+
+            {/* Solution Column */}
+            <div className="p-8 bg-gray-900 rounded border border-emerald-500/20 hover:border-emerald-500/40 transition-colors duration-300">
+              <h2 className="text-2xl font-medium mb-6 text-emerald-400">
+                La nostra soluzione
+              </h2>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-emerald-400 mt-1">•</span>
+                  <p>Esperienza concreta nella gestione di progetti tech, con una chiara roadmap per un controllo al dettaglio</p>
+                </li>
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-emerald-400 mt-1">•</span>
+                  <p>Competenza nel prevedere e gestire le sfide tecniche prima che diventino problemi</p>
+                </li>
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-emerald-400 mt-1">•</span>
+                  <p>Metodologia collaudata (a forza di cicatrici e porte in faccia.) che garantisce il rispetto di tempi e budget stabiliti</p>
+                </li>
+                <li className="flex items-start gap-3 text-white/70">
+                  <span className="text-emerald-400 mt-1">•</span>
+                  <p>Capacità di trasformare la visione iniziale in un prodotto concreto e coerente con le aspettative iniziali</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="py-20 px-6 border-t border-white/[.1]">
         <div className="max-w-screen-xl mx-auto">
@@ -81,6 +140,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog Section */}
+        <section className="py-20 px-6 border-t border-white/[.1] bg-gray-800">
+          <div className="max-w-screen-xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-5xl font-medium tracking-tight mb-6">
+                  Racconto, ricerca, repeat.
+                </h2>
+                <p className="text-lg text-white/60 mb-8 max-w-xl">
+                  Il nostro blog per condividere chi siamo e dove vogliamo arrivare. Segui il nostro percorso tra gestione progetti, tech e innovazione.
+                </p>
+                <Link 
+                  href="/blog"
+                  className="bg-white text-black px-6 py-3 inline-flex items-center gap-2 hover:bg-white/90 transition-colors rounded"
+                >
+                  Leggi il blog <ArrowRight size={18} />
+                </Link>
+              </div>
+              <div className="relative w-full aspect-square md:aspect-video">
+                <div className="absolute inset-0 rounded border border-white/[.1] hover:border-white/20 transition-colors bg-gray-900 p-8">
+                  <div className="flex flex-col h-full">
+                    <h3 className="text-2xl font-medium mb-4">NextJs + Supabase: lo stack tech senza compromessi</h3>
+                    <p className="text-white/60 mb-6">Ogni progetto di sviluppo tech richiede scelte già dal giorno 0. La difficoltà di tali scelte sta nel tempo d&apos;impatto: solo aul finire del progetto si comprende se le scelte del momento 0 sono state vincenti. Non prima.</p>
+                    <div className="mt-auto">
+                      <span className="inline-flex items-center gap-2 text-white/80">
+                        leggi <ArrowRight size={18} />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       {/* Pricing Section */}
       <section id="pricing" className="py-20 px-6 border-t border-white/[.1]">
         <div className="max-w-screen-xl mx-auto">
@@ -109,8 +203,8 @@ export default function Home() {
               <p className="text-white/60 mb-6">
                 Supervisione continua del team di sviluppo, controllo qualità e consegna finale.
               </p>
-              <p className="text-2xl font-medium">3%</p>
-              <p className="text-sm text-white/40">del valore totale (min. €1.500 + IVA)</p>
+              <p className="text-2xl font-medium">12%</p>
+              <p className="text-sm text-white/40">del valore totale (min. €2.500 + IVA)</p>
             </div>
           </div>
         </div>
