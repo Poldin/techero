@@ -8,6 +8,7 @@ import Header from './landing/Header';
 import Footer from './landing/Footer';
 import ContactForm from './landing/contactform';
 import Link from 'next/link';
+import TechProducts from './landing/techproductsection';
 
 
 // Rimuoviamo handleFormSubmit poiché il form gestisce internamente i dati
@@ -162,6 +163,10 @@ export default function Home() {
           </div>
         </div>
         </section>
+
+
+        {/* Tech Products Section */}
+        <TechProducts />
       
 
       {/* Features Grid */}
