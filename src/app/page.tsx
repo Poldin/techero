@@ -259,6 +259,12 @@ export default function Home() {
                   Chatta col nostro Bot
                 </Button>
               </div>
+              <p className="text-sm text-muted-foreground/80 mt-6 animate-fade-in-up" style={{ animationDelay: '2s' }}>
+                oppure mandaci una mail come una volta:  
+                <a href="mailto:scrivici@techero.xyz" className="ml-1 underline hover:text-primary transition-colors">
+                  scrivici@techero.xyz
+                </a>
+              </p>
           </div>
         </div>
       </section>
@@ -851,6 +857,12 @@ export default function Home() {
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Raccontaci la tua idea e trasformiamola insieme in realtà.
+          </p>
+          <p className="text-sm text-muted-foreground/80 mb-8">
+            oppure mandaci una mail come una volta: 
+            <a href="mailto:scrivici@techero.xyz" className="ml-1 underline hover:text-primary transition-colors">
+              scrivici@techero.xyz
+            </a>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
