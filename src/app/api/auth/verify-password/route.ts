@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     } else {
       return NextResponse.json({ valid: false }, { status: 401 });
     }
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
 }

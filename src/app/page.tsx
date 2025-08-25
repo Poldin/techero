@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Code, Database, Zap, Globe, Shield, Smartphone, BarChart3, Users, MessageSquare, CheckCircle, Link, Layers } from "lucide-react";
+import { ChevronLeft, ChevronRight, Code, Database, Zap, Globe, Shield, Smartphone, BarChart3, Users, MessageSquare, CheckCircle, Link, Layers, ShoppingCart } from "lucide-react";
 import { FloatingChatButton } from "@/components/chat/FloatingChatButton";
 import { ChatWidget } from "@/components/chat/ChatWidget";
 
@@ -845,6 +845,245 @@ export default function Home() {
                 </Button> 
               </div>
             </div> */}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="py-20 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Portfolio
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              I progetti che abbiamo realizzato. Soluzioni reali, clienti soddisfatti.
+            </p>
+          </div>
+
+          {/* Carosello Portfolio */}
+          <div className="relative max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              
+              {/* EU Dashboard Card */}
+              <Card className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer bg-gradient-to-br from-card via-card to-muted/30">
+                <div 
+                  className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/10 group-hover:to-primary/5 transition-all duration-500 pointer-events-none" 
+                />
+                
+                {/* Mockup grafico EU Dashboard */}
+                <div className="relative h-48 bg-gradient-to-br from-blue-500/10 via-green-500/10 to-purple-500/10 overflow-hidden">
+                  <div className="absolute inset-0 p-4">
+                    {/* Simulazione header dashboard */}
+                    <div className="w-full h-6 bg-gradient-to-r from-primary/20 to-primary/10 rounded mb-4"></div>
+                    
+                    {/* Simulazione stats cards */}
+                    <div className="grid grid-cols-2 gap-2 mb-4">
+                      <div className="h-8 bg-blue-500/20 rounded"></div>
+                      <div className="h-8 bg-green-500/20 rounded"></div>
+                    </div>
+                    
+                    {/* Simulazione grafico */}
+                    <div className="relative h-20 bg-gradient-to-t from-primary/30 to-transparent rounded">
+                      <div className="absolute bottom-0 left-2 w-2 h-8 bg-blue-500/60 rounded-t"></div>
+                      <div className="absolute bottom-0 left-6 w-2 h-12 bg-green-500/60 rounded-t"></div>
+                      <div className="absolute bottom-0 left-10 w-2 h-6 bg-yellow-500/60 rounded-t"></div>
+                      <div className="absolute bottom-0 left-14 w-2 h-10 bg-red-500/60 rounded-t"></div>
+                      <div className="absolute bottom-0 left-18 w-2 h-14 bg-purple-500/60 rounded-t"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Badge "LIVE" */}
+                  <div className="absolute top-4 right-4 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                    LIVE
+                  </div>
+                </div>
+
+                <CardContent className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                    EU Dashboard Eurostat
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    Dashboard interattiva con dati ufficiali Eurostat. 10 metriche economiche dell&apos;UE 
+                    con grafici dinamici e statistiche in tempo reale.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="px-2 py-1 bg-blue-500/10 text-blue-600 rounded-md text-xs font-medium">
+                      Next.js
+                    </span>
+                    <span className="px-2 py-1 bg-green-500/10 text-green-600 rounded-md text-xs font-medium">
+                      Recharts
+                    </span>
+                    <span className="px-2 py-1 bg-purple-500/10 text-purple-600 rounded-md text-xs font-medium">
+                      Eurostat API
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <Button 
+                      size="sm" 
+                      className="text-xs px-4 rounded-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300 hover:scale-105 shadow-lg"
+                      onClick={() => window.open('/eu-dashboard', '_blank')}
+                    >
+                      Visualizza Dashboard →
+                    </Button>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Globe className="w-3 h-3" />
+                      Live Demo
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Progetto 2 - E-commerce Platform */}
+              <Card className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer bg-gradient-to-br from-card via-card to-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/10 group-hover:to-primary/5 transition-all duration-500 pointer-events-none" />
+                
+                {/* Mockup E-commerce */}
+                <div className="relative h-48 bg-gradient-to-br from-emerald-500/10 via-blue-500/10 to-violet-500/10 overflow-hidden">
+                  <div className="absolute inset-0 p-4">
+                    {/* Header e-commerce */}
+                    <div className="flex justify-between items-center mb-4">
+                      <div className="w-16 h-4 bg-emerald-500/30 rounded"></div>
+                      <div className="w-8 h-4 bg-blue-500/30 rounded"></div>
+                    </div>
+                    
+                    {/* Grid prodotti */}
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="h-12 bg-gradient-to-br from-emerald-500/20 to-emerald-500/10 rounded"></div>
+                      <div className="h-12 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded"></div>
+                      <div className="h-12 bg-gradient-to-br from-violet-500/20 to-violet-500/10 rounded"></div>
+                      <div className="h-12 bg-gradient-to-br from-orange-500/20 to-orange-500/10 rounded"></div>
+                      <div className="h-12 bg-gradient-to-br from-pink-500/20 to-pink-500/10 rounded"></div>
+                      <div className="h-12 bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 rounded"></div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-4 right-4 bg-violet-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    SHOP
+                  </div>
+                </div>
+
+                <CardContent className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                    Marketplace Multi-Vendor
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    Piattaforma e-commerce completa con gestione multi-vendor, pagamenti Stripe, 
+                    inventory tracking e dashboard analytics.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="px-2 py-1 bg-emerald-500/10 text-emerald-600 rounded-md text-xs font-medium">
+                      React
+                    </span>
+                    <span className="px-2 py-1 bg-blue-500/10 text-blue-600 rounded-md text-xs font-medium">
+                      Stripe
+                    </span>
+                    <span className="px-2 py-1 bg-violet-500/10 text-violet-600 rounded-md text-xs font-medium">
+                      PostgreSQL
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <Button 
+                      size="sm" 
+                      className="text-xs px-4 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 hover:scale-105 shadow-lg text-white"
+                      onClick={() => openChat("Ciao! Sono interessato a un marketplace come quello nel vostro portfolio")}
+                    >
+                      Richiedi Info →
+                    </Button>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <ShoppingCart className="w-3 h-3" />
+                      E-commerce
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Progetto 3 - SaaS Platform */}
+              <Card className="group relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer bg-gradient-to-br from-card via-card to-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/10 group-hover:to-primary/5 transition-all duration-500 pointer-events-none" />
+                
+                {/* Mockup SaaS */}
+                <div className="relative h-48 bg-gradient-to-br from-indigo-500/10 via-cyan-500/10 to-teal-500/10 overflow-hidden">
+                  <div className="absolute inset-0 p-4">
+                    {/* Dashboard SaaS */}
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-6 h-6 bg-indigo-500/30 rounded-full"></div>
+                      <div className="w-20 h-3 bg-indigo-500/20 rounded"></div>
+                    </div>
+                    
+                    {/* Metrics */}
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                      <div className="p-2 bg-gradient-to-br from-indigo-500/20 to-indigo-500/10 rounded">
+                        <div className="w-8 h-2 bg-indigo-500/40 rounded mb-1"></div>
+                        <div className="w-12 h-3 bg-indigo-500/60 rounded"></div>
+                      </div>
+                      <div className="p-2 bg-gradient-to-br from-cyan-500/20 to-cyan-500/10 rounded">
+                        <div className="w-8 h-2 bg-cyan-500/40 rounded mb-1"></div>
+                        <div className="w-12 h-3 bg-cyan-500/60 rounded"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Chart area */}
+                    <div className="h-16 bg-gradient-to-t from-teal-500/20 to-transparent rounded relative">
+                      <svg className="w-full h-full" viewBox="0 0 100 30">
+                        <polyline 
+                          fill="none" 
+                          stroke="rgb(6 182 212)" 
+                          strokeWidth="1.5" 
+                          points="0,25 20,20 40,15 60,10 80,8 100,5"
+                          opacity="0.7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-4 right-4 bg-indigo-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    SaaS
+                  </div>
+                </div>
+
+                <CardContent className="p-6 relative z-10">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                    Analytics SaaS Platform
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    Piattaforma SaaS con dashboard analytics, subscription billing, 
+                    real-time data processing e integrazione AI.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="px-2 py-1 bg-indigo-500/10 text-indigo-600 rounded-md text-xs font-medium">
+                      Next.js
+                    </span>
+                    <span className="px-2 py-1 bg-cyan-500/10 text-cyan-600 rounded-md text-xs font-medium">
+                      Supabase
+                    </span>
+                    <span className="px-2 py-1 bg-teal-500/10 text-teal-600 rounded-md text-xs font-medium">
+                      OpenAI
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <Button 
+                      size="sm" 
+                      className="text-xs px-4 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 transition-all duration-300 hover:scale-105 shadow-lg text-white"
+                      onClick={() => openChat("Ciao! Vorrei sviluppare una piattaforma SaaS simile a quella nel portfolio")}
+                    >
+                      Discuti Progetto →
+                    </Button>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <BarChart3 className="w-3 h-3" />
+                      Analytics
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+            </div>
           </div>
         </div>
       </section>

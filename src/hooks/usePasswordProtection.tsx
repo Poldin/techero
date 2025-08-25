@@ -39,7 +39,7 @@ function PasswordDialog({ onSuccess }: PasswordDialogProps) {
         setError('Password non corretta');
         setPassword('');
       }
-    } catch (error) {
+    } catch {
       setError('Errore di connessione');
     } finally {
       setLoading(false);
