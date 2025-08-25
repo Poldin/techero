@@ -930,7 +930,7 @@ export default function Home() {
                     </Button>
                     <div className="flex items-center gap-1 text-xs text-muted-foreground">
                       <Globe className="w-3 h-3" />
-                      Live Demo
+                      Demo
                     </div>
                   </div>
                 </CardContent>
