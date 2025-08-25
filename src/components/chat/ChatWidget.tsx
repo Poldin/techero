@@ -71,9 +71,25 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
           if (newPublicId) setPublicId(newPublicId);
         }
         
+        // Log risposta e header utili
+        console.log("ChatWidget fetch response", {
+          ok: response.ok,
+          status: response.status,
+          headers: {
+            conversationId: response.headers.get('X-Conversation-Id'),
+            publicId: response.headers.get('X-Public-Id'),
+          },
+        });
         return response;
       },
     }),
+    onFinish: (message) => {
+      // Log del messaggio finale ricevuto dal modello
+      console.log("ChatWidget onFinish message", message);
+    },
+    onError: (error) => {
+      console.error("ChatWidget onError", error);
+    },
   });
 
   const [input, setInput] = React.useState("");
@@ -85,7 +101,23 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
 
   useEffect(() => {
     scrollToBottom();
+    // Log dei messaggi correnti per capire se arriva il messaggio finale dell'assistente
+    if (messages.length > 0) {
+      const last = messages[messages.length - 1];
+      console.log("ChatWidget messages update", {
+        count: messages.length,
+        lastRole: last.role,
+        lastParts: last.parts?.map((p) => p.type) ?? [],
+      });
+    } else {
+      console.log("ChatWidget messages empty");
+    }
   }, [messages]);
+
+  // Log dei cambi di stato dello stream (ready/streaming)
+  useEffect(() => {
+    console.log("ChatWidget status", status);
+  }, [status]);
 
   // Reset conversation quando la chat viene chiusa
   useEffect(() => {
@@ -170,13 +202,34 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
                     ? "bg-primary text-primary-foreground"
                     : "bg-muted"
                 }`}>
-                  {message.parts.map((part, index) =>
-                    part.type === "text" ? (
-                      <span key={index} className="text-sm leading-relaxed">
-                        {part.text}
-                      </span>
-                    ) : null
-                  )}
+                  {message.parts.map((part, index) => {
+                    if (part.type === "text") {
+                      return (
+                        <span key={index} className="text-sm leading-relaxed">
+                          {part.text}
+                        </span>
+                      );
+                    }
+                    const anyPart = part as unknown as { type: string; output: string };
+                    const isToolPart = typeof anyPart?.type === 'string' && anyPart.type.startsWith('tool-');
+                    if (isToolPart && anyPart.output) {
+                      let display = '';
+                      try {
+                        const parsed = JSON.parse(anyPart.output);
+                        display = parsed?.ok === true
+                          ? 'Richiesta inviata correttamente. Ti ricontatteremo a breve con la quotazione.'
+                          : "C'è stato un problema nell'invio. Puoi lasciarci un contatto alternativo o riprovare?";
+                      } catch {
+                        display = 'Operazione completata. Ti ricontatteremo a breve.';
+                      }
+                      return (
+                        <span key={index} className="text-sm leading-relaxed">
+                          {display}
+                        </span>
+                      );
+                    }
+                    return null;
+                  })}
                 </div>
               </div>
             ))}
@@ -284,13 +337,34 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted"
                   }`}>
-                    {message.parts.map((part, index) =>
-                      part.type === "text" ? (
-                        <span key={index} className="text-sm leading-relaxed">
-                          {part.text}
-                        </span>
-                      ) : null
-                    )}
+                    {message.parts.map((part, index) => {
+                      if (part.type === "text") {
+                        return (
+                          <span key={index} className="text-sm leading-relaxed">
+                            {part.text}
+                          </span>
+                        );
+                      }
+                      const anyPart = part as unknown as { type: string; output: string };
+                      const isToolPart = typeof anyPart?.type === 'string' && anyPart.type.startsWith('tool-');
+                      if (isToolPart && anyPart.output) {
+                        let display = '';
+                        try {
+                          const parsed = JSON.parse(anyPart.output);
+                          display = parsed?.ok === true
+                            ? 'Richiesta inviata correttamente. Ti ricontatteremo a breve con la quotazione.'
+                            : "C'è stato un problema nell'invio. Puoi lasciarci un contatto alternativo o riprovare?";
+                        } catch {
+                          display = 'Operazione completata. Ti ricontatteremo a breve.';
+                        }
+                        return (
+                          <span key={index} className="text-sm leading-relaxed">
+                            {display}
+                          </span>
+                        );
+                      }
+                      return null;
+                    })}
                   </div>
                 </div>
               ))}

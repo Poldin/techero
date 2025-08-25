@@ -33,3 +33,48 @@ export interface ConversationMessage {
   created_at: string
   metadata: Record<string, unknown>
 }
+
+// Helper functions for chat management
+export const chatQueries = {
+  // Get all conversations with message counts and previews
+  async getAllConversations() {
+    const { data, error } = await supabase
+      .from('conversations')
+      .select('*')
+      .order('updated_at', { ascending: false });
+    
+    return { data, error };
+  },
+
+  // Get specific conversation by public_id
+  async getConversationByPublicId(publicId: string) {
+    const { data, error } = await supabase
+      .from('conversations')
+      .select('*')
+      .eq('public_id', publicId)
+      .single();
+    
+    return { data, error };
+  },
+
+  // Get all messages for a conversation
+  async getConversationMessages(conversationId: string) {
+    const { data, error } = await supabase
+      .from('conversation_messages')
+      .select('*')
+      .eq('conversation_id', conversationId)
+      .order('created_at', { ascending: true });
+    
+    return { data, error };
+  },
+
+  // Get message count for a conversation
+  async getMessageCount(conversationId: string) {
+    const { count, error } = await supabase
+      .from('conversation_messages')
+      .select('*', { count: 'exact', head: true })
+      .eq('conversation_id', conversationId);
+    
+    return { count, error };
+  }
+};
