@@ -50,7 +50,7 @@ const sendLeadEmailTool = {
       `;
 
       await resend.emails.send({
-        from: 'tecHero Bot <noreply@techero.xyz>',
+        from: 'tecHero Bot <onboarding@resend.dev>',
         to: ['paolo@neocode.dev'],
         subject: `🎯 Nuovo Lead: ${customerName}${company ? ` (${company})` : ''}`,
         html: emailHtml,
@@ -189,9 +189,11 @@ REGOLE:
 - Non devi assolutamente parlare di prezzi o dare stime, devi solo raccogliere le informazioni essenziali
 
 QUANDO HAI RACCOLTO ABBASTANZA INFORMAZIONI (progetto, budget indicativo, tempistiche, contatti):
-- USA il tool "sendLeadEmail" per inviare automaticamente i dati a paolo@neocode.dev
+- USA il tool "sendLeadEmail" per inviare automaticamente i dati a paolo@neocode.dev includendo il link di conversazione (essenziale!)
 - Ringrazia il cliente e digli che riceverà presto una quotazione dettagliata
-- NON invitare più a prenotare call - l'email sarà sufficiente`,
+
+TEST
+è possibile che faremo dei test con questo tool, fai quello che ti viene detto in quel caso: è un test se iniziamo il messaggio con <test>. solo in quel caso ovviamente.`,
       messages: convertToModelMessages(messages),
       temperature: 0.7,
       tools: {
