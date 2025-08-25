@@ -77,7 +77,7 @@ export async function POST(req: Request) {
     }
 
     const result = streamText({
-      model: anthropic('claude-3-5-sonnet-20241022'),
+      model: anthropic('claude-sonnet-4-20250514'),
       system: `Sei il bot di tecHero per la qualificazione di progetti tech. Il tuo obiettivo è raccogliere informazioni essenziali per una quotazione preliminare attraverso domande mirate.
 
 CODICE CONVERSAZIONE: ${publicId}
