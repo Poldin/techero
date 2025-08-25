@@ -873,14 +873,14 @@ export default function Home() {
               <MessageSquare className="w-5 h-5 mr-2" />
               Chatta col nostro Bot
             </Button>
-            <Button 
+            {/* <Button 
               variant="outline" 
               size="lg" 
               className="px-8 py-6 text-lg rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl border-primary/30 hover:border-primary/60 hover:bg-primary/5"
               onClick={() => openChat("Ciao! Vorrei prenotare una call per discutere del mio progetto")}
             >
               Prenota una call
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
