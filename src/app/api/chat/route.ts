@@ -1,9 +1,68 @@
 import { anthropic } from '@ai-sdk/anthropic';
 import { convertToModelMessages, streamText, UIMessage } from 'ai';
 import { supabase, generatePublicId } from '@/lib/supabase';
+import { Resend } from 'resend';
+import { z } from 'zod';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
+
+// Inizializza Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Tool per l'invio di email lead
+const sendLeadEmailTool = {
+  description: 'Invia email con informazioni del lead quando hai raccolto abbastanza dati per una quotazione preliminare',
+  inputSchema: z.object({
+    customerName: z.string().describe('Nome del cliente/contatto'),
+    customerEmail: z.string().email().describe('Email del cliente'),
+    customerPhone: z.string().optional().describe('Numero di telefono del cliente (opzionale)'),
+    company: z.string().optional().describe('Nome azienda/organizzazione (opzionale)'),
+    projectSummary: z.string().describe('Riassunto delle informazioni raccolte sul progetto'),
+    chatId: z.string().describe('ID pubblico della conversazione')
+  }),
+  execute: async ({ customerName, customerEmail, customerPhone, company, projectSummary, chatId }: {
+    customerName: string;
+    customerEmail: string;
+    customerPhone?: string;
+    company?: string;
+    projectSummary: string;
+    chatId: string;
+  }) => {
+    try {
+      const emailHtml = `
+        <h2>🚀 Nuovo Lead da tecHero Chat</h2>
+        
+        <h3>📋 Informazioni Cliente</h3>
+        <p><strong>Nome:</strong> ${customerName}</p>
+        <p><strong>Email:</strong> ${customerEmail}</p>
+        ${customerPhone ? `<p><strong>Telefono:</strong> ${customerPhone}</p>` : ''}
+        ${company ? `<p><strong>Azienda:</strong> ${company}</p>` : ''}
+        
+        <h3>💼 Riassunto Progetto</h3>
+        <p>${projectSummary.replace(/\n/g, '<br>')}</p>
+        
+        <h3>🔗 Link Chat</h3>
+        <p><a href="https://techero.xyz/chat/${chatId}" target="_blank">Visualizza conversazione completa</a></p>
+        
+        <hr>
+        <p><small>Email generata automaticamente dal chatbot di tecHero</small></p>
+      `;
+
+      await resend.emails.send({
+        from: 'tecHero Bot <noreply@techero.xyz>',
+        to: ['paolo@neocode.dev'],
+        subject: `🎯 Nuovo Lead: ${customerName}${company ? ` (${company})` : ''}`,
+        html: emailHtml,
+      });
+
+      return 'Email inviata con successo!';
+    } catch (error) {
+      console.error('Error sending lead email:', error);
+      return 'Errore nell\'invio dell\'email';
+    }
+  }
+};
 
 export async function POST(req: Request) {
   try {
@@ -81,7 +140,7 @@ export async function POST(req: Request) {
       system: `Sei il bot di tecHero per la qualificazione di progetti tech. Il tuo obiettivo è raccogliere informazioni essenziali per una quotazione preliminare attraverso domande mirate.
 
 CODICE CONVERSAZIONE: ${publicId}
-Questa conversazione è disponibile su: https://techero.it/chat/${publicId}
+Questa conversazione è disponibile su: https://techero.xyz/chat/${publicId}
 
 APPROCCIO:
 - Fai UNA domanda alla volta
@@ -95,7 +154,6 @@ INFORMAZIONI DA RACCOGLIERE (in quest'ordine):
    - Qual è il tuo budget?
    - Qual è il tuo tempo di rilascio?
    - Qual è il tuo target?
-   - Qual è il tuo contesto?
    - Qual è il tuo contesto?
 
 1. PROGETTO & COMPLESSITÀ TECNICA:
@@ -115,7 +173,10 @@ INFORMAZIONI DA RACCOGLIERE (in quest'ordine):
    - È solo un'idea o hai già qualcosa di avviato?
    - Hai esperienze precedenti con sviluppo software?
 
-PREZZI RIFERIMENTO (non condividere subito):
+4. DATI DI CONTATTO:
+   - Chiedi sempre nome completo, email e numero di telefono per poter inviare la quotazione
+
+PREZZI RIFERIMENTO (non condividere):
 - MVP semplice: €2K-6K
 - Piattaforma completa: €6K-18K  
 - Sistema enterprise: €15K+
@@ -123,14 +184,19 @@ PREZZI RIFERIMENTO (non condividere subito):
 REGOLE:
 - Risposte BREVI e DIRETTE
 - UNA sola domanda per messaggio
-- Quando hai raccolto abbastanza informazioni, invita a prenotare una call usando: https://techero.it/call/${publicId}
 - Professionale ma sintetico nella lingua dell'utente
-- Parla solo di temi inerenti alle attività di techero: sviluppo software web con nextjs e supabase (quindi un sacco di cose, integrando stripe, api esterne, airtable e tutti i software possibili, ma non devi spiegare tutto questo, solo i concetti base): riporta la conversazione qui se esce
+- Parla solo di temi inerenti alle attività di techero: sviluppo software web con nextjs e supabase
+- Non devi assolutamente parlare di prezzi o dare stime, devi solo raccogliere le informazioni essenziali
 
-tu non devi assolutamente parlare di prezzi o dare stime, devi solo raccogliere le informazioni essenziali per una quotazione preliminare.
-per questo è importante che approfondisci bene le informazioni anche se come detto non è necessario richiedere risposte esageratamente esaustive all'utente.`,
+QUANDO HAI RACCOLTO ABBASTANZA INFORMAZIONI (progetto, budget indicativo, tempistiche, contatti):
+- USA il tool "sendLeadEmail" per inviare automaticamente i dati a paolo@neocode.dev
+- Ringrazia il cliente e digli che riceverà presto una quotazione dettagliata
+- NON invitare più a prenotare call - l'email sarà sufficiente`,
       messages: convertToModelMessages(messages),
       temperature: 0.7,
+      tools: {
+        sendLeadEmail: sendLeadEmailTool,
+      },
       onFinish: async (result) => {
         // Salva la risposta dell'AI
         if (result.text) {
