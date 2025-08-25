@@ -824,7 +824,7 @@ export default function Home() {
             </div>
 
             {/* Call to action informativa */}
-            <div className="text-center bg-gradient-to-r from-muted/30 to-muted/20 rounded-2xl p-8">
+            {/* <div className="text-center bg-gradient-to-r from-muted/30 to-muted/20 rounded-2xl p-8">
               <h3 className="text-xl font-semibold mb-4">
                 Vuoi un preventivo preciso?
               </h3>
@@ -842,9 +842,9 @@ export default function Home() {
                 </Button>
                 {/* <Button variant="outline" size="lg" className="px-8 rounded-full">
                   Esempi di preventivi
-                </Button> */}
+                </Button> 
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
