@@ -607,6 +607,314 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sezione Come lo realizziamo */}
+      <section className="py-20 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Come lo realizziamo
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Il nostro processo consolidato in 6 passaggi. Dalla prima idea al prodotto finale,
+              ti accompagniamo in ogni fase con trasparenza totale.
+            </p>
+          </div>
+
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              
+              {/* Passaggio 1 - Bot Chat */}
+              <Card className="group relative overflow-hidden border-2 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-muted/30">
+                {/* Effetto retroilluminazione Vercel-style */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/10 group-hover:to-primary/5 transition-all duration-500 pointer-events-none" />
+                
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-500/5 flex items-center justify-center text-blue-600 group-hover:from-blue-500/30 group-hover:to-blue-500/10 transition-all duration-500">
+                      <span className="text-xl font-bold">1</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MessageSquare className="w-5 h-5 text-blue-600" />
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+                        Chat con il nostro Bot
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Il nostro bot intelligente ti guida nella definizione del progetto, raccogliendo tutti i 
+                    dettagli tecnici e funzionali necessari. È disponibile 24/7 e capisce esattamente cosa ti serve.
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Analisi dei requisiti funzionali</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Definizione scope tecnico</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Prime stime di budget e tempi</span>
+                    </div>
+                  </div>
+
+                  <Button 
+                    size="sm" 
+                    className="w-full rounded-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-lg text-white"
+                    onClick={() => openChat("Ciao! Vorrei iniziare a delineare il mio progetto con il vostro bot")}
+                  >
+                    <MessageSquare className="w-4 h-4 mr-2" />
+                    Chatta subito col Bot
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Passaggio 2 - Call di approfondimento */}
+              <Card className="group relative overflow-hidden border-2 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20 hover:border-green-500/50 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/0 via-green-500/0 to-green-500/0 group-hover:from-green-500/5 group-hover:via-green-500/10 group-hover:to-green-500/5 transition-all duration-500 pointer-events-none" />
+                
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center text-green-600 group-hover:from-green-500/30 group-hover:to-green-500/10 transition-all duration-500">
+                      <span className="text-xl font-bold">2</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-5 h-5 text-green-600" />
+                      <h3 className="text-xl font-bold group-hover:text-green-600 transition-colors duration-300">
+                        Call di approfondimento
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Una videocall di 30-45 minuti con il nostro team per approfondire gli aspetti tecnici, 
+                    discutere l&apos;architettura ideale e definire insieme la roadmap di sviluppo.
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Analisi tecnica approfondita</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Definizione architettura</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Planning milestone e sprint</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full h-10 rounded-full bg-muted/30 flex items-center justify-center text-sm text-muted-foreground">
+                    Dopo la chat col bot
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Passaggio 3 - Offerta vincolante */}
+              <Card className="group relative overflow-hidden border-2 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 hover:border-purple-500/50 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-purple-500/0 to-purple-500/0 group-hover:from-purple-500/5 group-hover:via-purple-500/10 group-hover:to-purple-500/5 transition-all duration-500 pointer-events-none" />
+                
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center text-purple-600 group-hover:from-purple-500/30 group-hover:to-purple-500/10 transition-all duration-500">
+                      <span className="text-xl font-bold">3</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-purple-600" />
+                      <h3 className="text-xl font-bold group-hover:text-purple-600 transition-colors duration-300">
+                        Offerta vincolante
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Ricevi una proposta dettagliata con prezzo fisso, timeline precisa e specifiche tecniche complete. 
+                    Niente sorprese: quello che vedi è quello che paghi.
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Prezzo fisso.</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Timeline progettuale</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Specifiche tecniche di implementazione</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full h-10 rounded-full bg-muted/30 flex items-center justify-center text-sm text-muted-foreground">
+                    Entro 48h dalla call
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Passaggio 4 - Sviluppo con updates */}
+              <Card className="group relative overflow-hidden border-2 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-500/50 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/5 group-hover:via-orange-500/10 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
+                
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500/20 to-orange-500/5 flex items-center justify-center text-orange-600 group-hover:from-orange-500/30 group-hover:to-orange-500/10 transition-all duration-500">
+                      <span className="text-xl font-bold">4</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Code className="w-5 h-5 text-orange-600" />
+                      <h3 className="text-xl font-bold group-hover:text-orange-600 transition-colors duration-300">
+                        Sviluppo e aggiornamenti
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Iniziamo lo sviluppo e ti teniamo sempre aggiornato. Ricevi un link personalizzato per 
+                    seguire i progressi in tempo reale e testare le funzionalità man mano che vengono implementate.
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Aggiornamento avanzamenti</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Link di test dedicato</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Feedback continuo</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full h-10 rounded-full bg-muted/30 flex items-center justify-center text-sm text-muted-foreground">
+                    Dopo l&apos;accettazione
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Passaggio 5 - Test e finalizzazione */}
+              <Card className="group relative overflow-hidden border-2 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20 hover:border-cyan-500/50 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-cyan-500/0 to-cyan-500/0 group-hover:from-cyan-500/5 group-hover:via-cyan-500/10 group-hover:to-cyan-500/5 transition-all duration-500 pointer-events-none" />
+                
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 flex items-center justify-center text-cyan-600 group-hover:from-cyan-500/30 group-hover:to-cyan-500/10 transition-all duration-500">
+                      <span className="text-xl font-bold">5</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Shield className="w-5 h-5 text-cyan-600" />
+                      <h3 className="text-xl font-bold group-hover:text-cyan-600 transition-colors duration-300">
+                        Test e finalizzazione
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Fase finale di testing approfondito su tutti i dispositivi e browser. Risolviamo ogni bug, 
+                    ottimizziamo le performance e ci assicuriamo che tutto funzioni perfettamente.
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Testing</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Ottimizzazione</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Bug fixing</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full h-10 rounded-full bg-muted/30 flex items-center justify-center text-sm text-muted-foreground">
+                    Ultima settimana
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Passaggio 6 - Deploy e monitoraggio */}
+              <Card className="group relative overflow-hidden border-2 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20 hover:border-emerald-500/50 hover:-translate-y-2 bg-gradient-to-br from-card via-card to-muted/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/0 to-emerald-500/0 group-hover:from-emerald-500/5 group-hover:via-emerald-500/10 group-hover:to-emerald-500/5 transition-all duration-500 pointer-events-none" />
+                
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 flex items-center justify-center text-emerald-600 group-hover:from-emerald-500/30 group-hover:to-emerald-500/10 transition-all duration-500">
+                      <span className="text-xl font-bold">6</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-emerald-600" />
+                      <h3 className="text-xl font-bold group-hover:text-emerald-600 transition-colors duration-300">
+                        Deploy e monitoraggio
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Pubblichiamo il tuo progetto in produzione e lo monitoriamo attivamente per 30 giorni. 
+                    Siamo sempre disponibili per fix urgenti e piccoli aggiustamenti.
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Deploy in produzione</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Monitoraggio 30 giorni</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Support incluso</span>
+                    </div>
+                  </div>
+
+                  <div className="w-full h-10 rounded-full bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 flex items-center justify-center text-sm font-medium text-emerald-700">
+                    🎉 Progetto LIVE!
+                  </div>
+                </CardContent>
+              </Card>
+
+            </div>
+
+            {/* Call to action per iniziare il processo */}
+            <div className="text-center mt-16">
+              <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Iniziamo insieme questo percorso
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    Il primo passo è sempre una semplice conversazione. Il nostro bot ti guiderà 
+                    nella definizione del progetto in pochi minuti.
+                  </p>
+                  <Button 
+                    size="lg" 
+                    className="px-8 py-6 text-lg rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+                    onClick={() => openChat("Ciao! Sono pronto a iniziare il processo per il mio progetto")}
+                  >
+                    <MessageSquare className="w-5 h-5 mr-2" />
+                    Inizia il processo ora
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stack Tecnologico */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -1084,6 +1392,145 @@ export default function Home() {
               </Card>
 
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sezione Partnership */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Partnership
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Conosci qualcuno che potrebbe aver bisogno dei nostri servizi? 
+              Aiutaci a crescere e ricevi una commissione per ogni progetto che ci porti.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="group relative overflow-hidden border-2 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/50 bg-gradient-to-br from-card via-card to-muted/30">
+              {/* Effetto retroilluminazione Vercel-style */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/10 group-hover:to-primary/5 transition-all duration-500 pointer-events-none" />
+              
+              <CardContent className="p-8 sm:p-12 relative z-10">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  
+                  {/* Lato sinistro - Info programma */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center group-hover:from-green-500/30 group-hover:to-green-500/10 transition-all duration-500">
+                        <Users className="w-6 h-6 text-green-600" />
+                      </div>
+                      <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                        Diventa nostro Partner
+                      </h3>
+                    </div>
+                    
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                      Cerchiamo appassionati di tecnologia, consulenti, freelancer e professionisti 
+                      che vogliano consigliare i nostri servizi alla loro rete di contatti.
+                    </p>
+                    
+                    <div className="space-y-4 mb-8">
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-sm">Commissione solo a successo</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-sm">Supporto completo nel processo di vendita</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-sm">Materiali marketing e presentazioni pronte</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-sm">Referral tracking trasparente</span>
+                      </div>
+                    </div>
+
+                    <Button 
+                      size="lg" 
+                      className="w-full sm:w-auto px-8 py-6 text-lg rounded-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 transition-all duration-300 hover:scale-105 shadow-lg text-white"
+                      onClick={() => openChat("Ciao! Vorrei sottoporti un progetto per il programma partnership")}
+                    >
+                      <Users className="w-5 h-5 mr-2" />
+                      Sottoponi un progetto
+                    </Button>
+                  </div>
+
+                  {/* Lato destro - Dettagli commissione */}
+                  <div className="relative">
+                    <div className="p-8 rounded-2xl bg-gradient-to-br from-green-500/5 to-green-500/10 border border-green-500/20 group-hover:from-green-500/10 group-hover:to-green-500/15 transition-all duration-500">
+                      <div className="text-center mb-6">
+                        <div className="text-4xl font-bold text-green-600 mb-2">15%</div>
+                        <p className="text-lg font-semibold text-foreground">di commissione</p>
+                        <p className="text-sm text-muted-foreground">su ogni progetto portato</p>
+                      </div>
+                      
+                      <div className="space-y-4 mb-6">
+                        <div className="flex justify-between items-center py-2 border-b border-muted/30">
+                          <span className="text-sm text-muted-foreground">Commissione minima</span>
+                          <span className="font-semibold text-green-600">€ 500</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-muted/30">
+                          <span className="text-sm text-muted-foreground">Progetto da € 5.000</span>
+                          <span className="font-semibold">€ 750</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-muted/30">
+                          <span className="text-sm text-muted-foreground">Progetto da € 10.000</span>
+                          <span className="font-semibold">€ 1.500</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2">
+                          <span className="text-sm text-muted-foreground">Progetto da € 20.000</span>
+                          <span className="font-semibold text-green-600">€ 3.000</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-background/60 rounded-lg p-4 text-center">
+                        <p className="text-xs text-muted-foreground mb-1">Pagamento commissione</p>
+                        <p className="text-sm font-medium">Entro 7 giorni dal primo pagamento del cliente</p>
+                      </div>
+                    </div>
+                    
+                    {/* Badge "Solo a successo" */}
+                    <div className="absolute -top-3 -right-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse">
+                      Solo a successo
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sezione informativa finale */}
+                <div className="mt-12 pt-8 border-t border-muted/30">
+                  <div className="text-center">
+                    <p className="text-muted-foreground text-sm mb-4">
+                      Come funziona? Semplice: ci presenti un potenziale cliente, 
+                      se il progetto va in porto ricevi la tua commissione. 
+                      Nessun rischio, solo opportunità.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="px-6 rounded-full border-green-500/30 hover:border-green-500/60 hover:bg-green-500/5"
+                        onClick={() => openChat("Ciao! Vorrei sapere di più su come funziona il programma partnership")}
+                      >
+                        Come funziona?
+                      </Button>
+                      <span className="text-xs text-muted-foreground">
+                        o scrivici: 
+                        <a href="mailto:partnership@techero.xyz" className="ml-1 underline hover:text-primary transition-colors">
+                          partnership@techero.xyz
+                        </a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

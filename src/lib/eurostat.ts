@@ -69,7 +69,7 @@ const EUROSTAT_BASE_URL = 'https://ec.europa.eu/eurostat/api/dissemination/stati
 
 class EurostatAPI {
   private baseUrl: string;
-  private cache: Map<string, { data: any; timestamp: number }>;
+  private cache: Map<string, { data: EurostatResponse; timestamp: number }>;
   private cacheDuration: number; // durata cache in millisecond
 
   constructor() {
@@ -103,7 +103,7 @@ class EurostatAPI {
         try {
           errorBody = await response.text();
           console.error('❌ Error response body:', errorBody);
-        } catch (e) {
+        } catch {
           console.error('❌ Could not read error body');
         }
         throw new Error(`HTTP error! status: ${response.status} - ${response.statusText} - Body: ${errorBody}`);
@@ -126,7 +126,6 @@ class EurostatAPI {
   private parseEurostatData(
     data: EurostatResponse, 
     countryDimension: string = 'geo',
-    valueDimension?: string
   ): ProcessedData[] {
     try {
       return this.parseLatestByGeo(data, countryDimension);
@@ -378,7 +377,7 @@ class EurostatAPI {
   }
 
   // Metodo di test molto basilare
-  async getBasicTest(): Promise<any> {
+  async getBasicTest(): Promise<EurostatResponse | null> {
     console.log('🧪 [TEST] Inizio test di connessione basilare...');
     try {
       // Test ultra-semplice senza parametri complessi

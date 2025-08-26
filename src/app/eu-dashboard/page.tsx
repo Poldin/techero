@@ -6,25 +6,6 @@ import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 import { TrendingUp, TrendingDown, Users, DollarSign, Activity, Globe, RefreshCw, Zap, BarChart3, PieChart as ShoppingCart, Leaf, Wifi, TreePine, GraduationCap, Scale } from 'lucide-react';
 
-// Tipi per i dati Eurostat
-interface EurostatDatapoint {
-  dimension: { [key: string]: number };
-  value: [number];
-  status?: [string];
-}
-
-interface EurostatData {
-  value: { [key: string]: number };
-  dimension: {
-    [key: string]: {
-      label: string;
-      category: {
-        index: { [key: string]: number };
-        label: { [key: string]: string };
-      };
-    };
-  };
-}
 
 interface ChartData {
   name: string;
@@ -872,7 +853,7 @@ export default function EUDashboard() {
                       </div>
                     ))}
 
-                    {activeChart === 'unemployment' && unemploymentData.slice(-5).map((period, index) => (
+                    {activeChart === 'unemployment' && unemploymentData.slice(-5).map((period ) => (
                       <div key={period.name} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-white font-bold text-xs">
