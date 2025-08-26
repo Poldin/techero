@@ -889,28 +889,6 @@ export default function Home() {
 
             </div>
 
-            {/* Call to action per iniziare il processo */}
-            <div className="text-center mt-16">
-              <Card className="max-w-2xl mx-auto bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold mb-4">
-                    Iniziamo insieme questo percorso
-                  </h3>
-                  <p className="text-muted-foreground mb-6">
-                    Il primo passo è sempre una semplice conversazione. Il nostro bot ti guiderà 
-                    nella definizione del progetto in pochi minuti.
-                  </p>
-                  <Button 
-                    size="lg" 
-                    className="px-8 py-6 text-lg rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
-                    onClick={() => openChat("Ciao! Sono pronto a iniziare il processo per il mio progetto")}
-                  >
-                    <MessageSquare className="w-5 h-5 mr-2" />
-                    Inizia il processo ora
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
