@@ -177,8 +177,12 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold">
-                tec<span className="text-primary">Hero</span>
+              <h1 className="text-2xl font-bold flex items-center">
+                tec<span className="relative inline-block">
+                  <span className="font-black text-primary decoration-primary/60 decoration-2 underline-offset-4 relative text-3xl">
+                    <span className="">H</span>
+                  </span>
+                </span>ero
               </h1>
             </div>
             <Button 
