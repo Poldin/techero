@@ -1494,18 +1494,10 @@ export default function Home() {
                       Nessun rischio, solo opportunità.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="px-6 rounded-full border-green-500/30 hover:border-green-500/60 hover:bg-green-500/5"
-                        onClick={() => openChat("Ciao! Vorrei sapere di più su come funziona il programma partnership")}
-                      >
-                        Come funziona?
-                      </Button>
                       <span className="text-xs text-muted-foreground">
                         o scrivici: 
-                        <a href="mailto:partnership@techero.xyz" className="ml-1 underline hover:text-primary transition-colors">
-                          partnership@techero.xyz
+                        <a href="mailto:scrivici@techero.xyz" className="ml-1 underline hover:text-primary transition-colors">
+                          scrivici@techero.xyz
                         </a>
                       </span>
                     </div>
