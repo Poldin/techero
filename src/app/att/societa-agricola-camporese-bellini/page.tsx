@@ -180,7 +180,7 @@ export default function CampoeseBelliniPage() {
 						<h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">{BUSINESS.name}</h1>
 						<div className="space-y-4">
 							<p className="text-xl text-gray-800 leading-relaxed">
-								Nel cuore di Vigonza, la Società Agricola Camporese Bellini S.S. rappresenta un'eccellenza nel settore della coltivazione di fiori in piena aria, specializzata nella produzione di piante ornamentali e fiori recisi di alta qualità.
+								Nel cuore di Vigonza, la Società Agricola Camporese Bellini S.S. rappresenta un&apos;eccellenza nel settore della coltivazione di fiori in piena aria, specializzata nella produzione di piante ornamentali e fiori recisi di alta qualità.
 							</p>
 							<p className="text-lg text-gray-700 leading-relaxed">
 								Fondata nel 2003 e con sede in Via Cimitero 8-7, la nostra azienda agricola combina esperienza familiare e passione per la floricoltura. Specializzati nella coltivazione di fiori in piena aria, offriamo varietà selezionate e curate nei minimi dettagli per garantire freschezza e bellezza durature.
