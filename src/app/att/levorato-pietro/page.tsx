@@ -14,15 +14,23 @@ import {
 } from "@/components/ui/carousel";
 
 const BUSINESS = {
-	name: 'Vivai Lirussi Denis',
-	addressLine: 'Via Villanova, 11, 30030 Vigonovo VE',
-	mapsUrl: 'https://www.google.com/maps?q=Via+Villanova,+11,+30030+Vigonovo+VE',
-	phone: '049 646225',
+	name: 'Società Agricola Levorato S.S.',
+	owner: 'Levorato Pietro',
+	addressLine: 'Via Grandi, 56, 35010 Vigonza (PD)',
+	mapsUrl: 'https://www.google.com/maps?q=Via+Grandi,+56,+35010+Vigonza+PD',
+	phone: '049 503 2847', // Placeholder phone number
+	email: 'levoratovivai@legalmail.it',
+	vatNumber: '04454750284',
+	fiscalCode: '04454750284',
 };
 
 const IMAGES: { src: string; alt: string }[] = [
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed.webp', alt: 'Vivai Lirussi Denis - vista 1' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/Screenshot%202025-09-03%20155647.png', alt: 'Vivai Lirussi Denis - contatti' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(1).jpg', alt: 'Società Agricola Levorato - vivaio interno con fiori e piante' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(2).jpg', alt: 'Società Agricola Levorato - collezione piante da interno' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(1).jpg', alt: 'Società Agricola Levorato - giardino esterno con piante' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(2).jpg', alt: 'Società Agricola Levorato - area esterna del vivaio' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino.jpg', alt: 'Società Agricola Levorato - spazi verdi esterni' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20di%20giorno%20con%20vista%20sul%20campo%20esterno.jpg', alt: 'Società Agricola Levorato - vista panoramica del campo esterno' },
 ];
 
 // Orari settimanali (Lunedì -> Domenica) - orari standard per vivai
@@ -65,13 +73,13 @@ function formatMinutes(mins: number): string {
 	return `${m}m`;
 }
 
-export default function VivaioLirussiPage() {
+export default function LevatoPage() {
 	const phoneHref = BUSINESS.phone.replace(/\s+/g, '');
 	const status = minutesUntilClose(new Date());
 	const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 	const [currentEmoji, setCurrentEmoji] = useState(0);
 
-	const emojis = ['🌱', '🌿', '🌺', '🌻', '🌹', '🌷', '🌸', '🌼'];
+	const emojis = ['🌿', '🌾', '🌺', '🌻', '🌱', '🌳', '🌸', '🌼'];
 
 	// Plugin autoplay per il carosello
 	const plugin = useRef(
@@ -86,22 +94,20 @@ export default function VivaioLirussiPage() {
 		return () => clearInterval(interval);
 	}, [emojis.length]);
 
-
-
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-green-50 text-gray-900">
+		<div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-amber-50 text-gray-900">
 			{/* Header / Logo */}
 			<header className="sticky top-0 z-30 backdrop-blur bg-white/70 border-b">
 				<div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
 					<div className="text-2xl sm:text-3xl font-bold tracking-wide flex items-center gap-2">
-						<span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">🌿 Vivai</span> 
-						<span className="text-gray-800 font-extrabold italic">Lirussi</span>
-						<span className="bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent">Denis</span>
+						<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">🌾 Società Agricola</span> 
+						<span className="text-gray-800 font-extrabold italic">Levorato</span>
+						<span className="bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">S.S.</span>
 					</div>
 					<div className="hidden sm:flex items-center gap-3 text-sm">
-						<Link href={BUSINESS.mapsUrl} target="_blank" className="text-green-700 hover:text-green-800 underline-offset-2 hover:underline">Indicazioni</Link>
+						<Link href={BUSINESS.mapsUrl} target="_blank" className="text-blue-700 hover:text-blue-800 underline-offset-2 hover:underline">Indicazioni</Link>
 						{BUSINESS.phone ? (
-							<a href={`tel:${phoneHref}`} className="inline-flex items-center gap-2 rounded-full bg-green-600 text-white px-4 py-2 hover:bg-green-700 transition-colors">
+							<a href={`tel:${phoneHref}`} className="inline-flex items-center gap-2 rounded-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 transition-colors">
 								<Phone size={18} />
 								Chiama
 							</a>
@@ -128,7 +134,7 @@ export default function VivaioLirussiPage() {
 								<CarouselItem key={index}>
 									<div className="p-1 sm:p-2">
 										<div 
-											className="aspect-[3/4] sm:aspect-[16/9] rounded-lg overflow-hidden shadow-md bg-green-100 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+											className="aspect-[3/4] sm:aspect-[16/9] rounded-lg overflow-hidden shadow-md bg-blue-100 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
 											onClick={() => setFullscreenImage(img.src)}
 										>
 											<Image
@@ -155,16 +161,16 @@ export default function VivaioLirussiPage() {
 						<h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">{BUSINESS.name}</h1>
 						<div className="space-y-4">
 							<p className="text-xl text-gray-800 leading-relaxed">
-								Dal 1996 nel cuore di Vigonovo, i Vivai Lirussi Denis rappresentano un&apos;eccellenza nel settore florovivaistico, specializzati nella coltivazione di fiori in piena aria e nella produzione di piante ornamentali di alta qualità.
+								Nel cuore di Vigonza, la Società Agricola Levorato S.S. rappresenta un punto di riferimento nel settore florovivaistico padovano, specializzata nella riproduzione e coltivazione di piante ornamentali di alta qualità.
 							</p>
 							<p className="text-lg text-gray-700 leading-relaxed">
-								Con oltre 25 anni di esperienza e un team di 7 professionisti dedicati, offriamo una vasta gamma di piante e fiori coltivati con passione e competenza. La nostra specializzazione nella coltivazione in piena aria garantisce piante robuste e ben acclimatate, perfette per giardini, terrazzi e progetti paesaggistici.
+								Con sede in Via Grandi 56, la nostra azienda agricola combina tradizione familiare e innovazione tecnologica per offrire piante robuste e ben acclimatate. La nostra specializzazione nella riproduzione delle piante garantisce varietà selezionate e di qualità superiore per privati e professionisti del settore.
 							</p>
 							<p className="text-lg text-gray-700 leading-relaxed">
-								Che tu sia un privato alla ricerca della pianta perfetta per il tuo spazio verde o un professionista del settore, presso i nostri vivai troverai varietà selezionate, consulenza esperta e la qualità che solo l&apos;esperienza pluriennale può offrire. Ogni pianta è curata nei minimi dettagli per garantire la massima soddisfazione del cliente.
+								Che tu sia un appassionato di giardinaggio alla ricerca della pianta perfetta per il tuo spazio verde o un professionista del paesaggismo, presso la nostra azienda troverai varietà accuratamente selezionate, consulenza esperta e la qualità che solo l&apos;esperienza nel settore agricolo può offrire.
 							</p>
 							<p className="text-lg text-gray-700 leading-relaxed">
-								La nostra partecipazione a eventi del settore come Flormart testimonia il nostro impegno costante nell&apos;innovazione e nell&apos;aggiornamento delle tecniche colturali, per offrire sempre il meglio nel mondo del florovivaismo.
+								La nostra posizione strategica a Vigonza ci permette di servire efficacemente tutto il territorio padovano e veneto, garantendo sempre la freschezza e la vitalità delle nostre piante. Ogni esemplare è curato nei minimi dettagli per assicurare la massima soddisfazione del cliente.
 							</p>
 						</div>
 					</div>
@@ -174,12 +180,16 @@ export default function VivaioLirussiPage() {
 							<p className="font-semibold">{BUSINESS.addressLine}</p>
 							<div className="mt-4">
 								<p className="text-sm text-gray-500">Telefono</p>
-								<a href={`tel:${phoneHref}`} className="font-semibold text-green-700 hover:underline">{BUSINESS.phone}</a>
+								<a href={`tel:${phoneHref}`} className="font-semibold text-blue-700 hover:underline">{BUSINESS.phone}</a>
+							</div>
+							<div className="mt-4">
+								<p className="text-sm text-gray-500">Email</p>
+								<a href={`mailto:${BUSINESS.email}`} className="font-semibold text-blue-700 hover:underline text-sm">{BUSINESS.email}</a>
 							</div>
 							<div className="mt-4 flex flex-col gap-3">
-								<Link href={BUSINESS.mapsUrl} target="_blank" className="inline-flex justify-center items-center rounded-full border border-green-200 bg-green-50 text-green-800 px-4 py-2 hover:bg-green-100">Apri su Google Maps</Link>
+								<Link href={BUSINESS.mapsUrl} target="_blank" className="inline-flex justify-center items-center rounded-full border border-blue-200 bg-blue-50 text-blue-800 px-4 py-2 hover:bg-blue-100">Apri su Google Maps</Link>
 								{BUSINESS.phone ? (
-									<a href={`tel:${phoneHref}`} className="inline-flex justify-center items-center rounded-full bg-green-600 text-white px-4 py-2 hover:bg-green-700">Chiama ora</a>
+									<a href={`tel:${phoneHref}`} className="inline-flex justify-center items-center rounded-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700">Chiama ora</a>
 								) : (
 									<span className="text-xs text-gray-500">Numero in aggiornamento</span>
 								)}
@@ -189,12 +199,12 @@ export default function VivaioLirussiPage() {
 						{/* Orari */}
 						<div className="mt-6 rounded-2xl border bg-white p-5 shadow-md">
 							<div className="flex items-center gap-2 mb-3">
-								<Clock className="text-green-600" size={18} />
+								<Clock className="text-blue-600" size={18} />
 								<p className="font-semibold">Orari</p>
 							</div>
 							<div className="mb-4 text-sm">
 								{status.isOpen ? (
-									<p className="text-green-700 font-medium">Aperto ora, chiude tra {formatMinutes(status.minutesLeft)} (alle {status.closeTimeLabel})</p>
+									<p className="text-blue-700 font-medium">Aperto ora, chiude tra {formatMinutes(status.minutesLeft)} (alle {status.closeTimeLabel})</p>
 								) : (
 									<p className="text-gray-600 font-medium">Chiuso ora</p>
 								)}
@@ -223,19 +233,24 @@ export default function VivaioLirussiPage() {
 						{/* Logo e contatti */}
 						<div className="text-center">
 							<div className="text-lg font-bold mb-2 flex items-center justify-center gap-2">
-								<span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">🌿 Vivai</span> 
-								<span className="text-gray-800 font-extrabold italic">Lirussi</span>
-								<span className="bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent">Denis</span>
+								<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">🌾 Società Agricola</span> 
+								<span className="text-gray-800 font-extrabold italic">Levorato</span>
+								<span className="bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">S.S.</span>
 							</div>
 							<div className="text-sm text-gray-600 space-y-1">
 								<p>{BUSINESS.addressLine}</p>
 								<p>
-									<a href={`tel:${phoneHref}`} className="text-green-700 hover:underline">
+									<a href={`tel:${phoneHref}`} className="text-blue-700 hover:underline">
 										{BUSINESS.phone}
 									</a>
 								</p>
+								<p>
+									<a href={`mailto:${BUSINESS.email}`} className="text-blue-700 hover:underline text-sm">
+										{BUSINESS.email}
+									</a>
+								</p>
 								<p className="text-xs text-gray-500 mt-2">
-									P.IVA: 02946300270 • Fondata nel 1996
+									P.IVA: {BUSINESS.vatNumber} • C.F.: {BUSINESS.fiscalCode}
 								</p>
 							</div>
 						</div>
@@ -282,7 +297,7 @@ export default function VivaioLirussiPage() {
 
 			{/* Floating Call Button */}
 			{BUSINESS.phone && (
-				<a href={`tel:${phoneHref}`} className="fixed bottom-5 right-5 z-40 inline-flex items-center justify-center rounded-full bg-green-600 text-white w-14 h-14 shadow-lg hover:bg-green-700 active:scale-95 transition">
+				<a href={`tel:${phoneHref}`} className="fixed bottom-5 right-5 z-40 inline-flex items-center justify-center rounded-full bg-blue-600 text-white w-14 h-14 shadow-lg hover:bg-blue-700 active:scale-95 transition">
 					<Phone />
 				</a>
 			)}
@@ -309,8 +324,6 @@ export default function VivaioLirussiPage() {
 					/>
 				</div>
 			)}
-
-
 		</div>
 	);
 }
