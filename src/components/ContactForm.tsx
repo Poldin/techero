@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Send, Mail, MessageCircle, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Mail, MessageCircle, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 
 interface ContactFormProps {
   recipientEmail: string;
@@ -10,6 +10,7 @@ interface ContactFormProps {
 
 interface FormData {
   email: string;
+  phone: string;
   message: string;
 }
 
@@ -21,6 +22,7 @@ interface FormStatus {
 export default function ContactForm({ recipientEmail, businessName }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     email: '',
+    phone: '',
     message: ''
   });
   
@@ -66,6 +68,7 @@ export default function ContactForm({ recipientEmail, businessName }: ContactFor
         },
         body: JSON.stringify({
           senderEmail: formData.email,
+          senderPhone: formData.phone,
           recipientEmail: recipientEmail,
           message: formData.message,
           businessName: businessName
@@ -77,7 +80,7 @@ export default function ContactForm({ recipientEmail, businessName }: ContactFor
           type: 'success',
           message: 'Messaggio inviato con successo! Ti risponderemo al più presto.'
         });
-        setFormData({ email: '', message: '' });
+        setFormData({ email: '', phone: '', message: '' });
       } else {
         throw new Error('Errore nell\'invio del messaggio');
       }
@@ -117,6 +120,24 @@ export default function ContactForm({ recipientEmail, businessName }: ContactFor
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
             disabled={status.type === 'loading'}
             required
+          />
+        </div>
+
+        {/* Phone Field */}
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+            <Phone size={14} className="inline mr-1" />
+            Telefono (opzionale)
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            placeholder="es. 049 123 4567"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
+            disabled={status.type === 'loading'}
           />
         </div>
 

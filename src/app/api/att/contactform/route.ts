@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     
     // Validate required fields
-    const { senderEmail, recipientEmail, message, businessName } = body;
+    const { senderEmail, senderPhone, recipientEmail, message, businessName } = body;
     
     if (!senderEmail || !recipientEmail || !message) {
       return NextResponse.json(
@@ -30,6 +30,7 @@ export async function POST(request: NextRequest) {
     // Log the request for debugging
     console.log('Contact form submission:', {
       senderEmail,
+      senderPhone: senderPhone || 'Not provided',
       recipientEmail,
       businessName,
       messageLength: message.length,
@@ -42,6 +43,7 @@ export async function POST(request: NextRequest) {
       
       <h3>👤 Informazioni mittente</h3>
       <p><strong>Email:</strong> ${senderEmail}</p>
+      ${senderPhone ? `<p><strong>Telefono:</strong> ${senderPhone}</p>` : ''}
       <p><strong>Azienda di destinazione:</strong> ${businessName}</p>
       
       <h3>💬 Messaggio</h3>
@@ -92,6 +94,7 @@ export async function POST(request: NextRequest) {
           emailId: emailResult.data?.id,
           recipients: recipients,
           senderEmail,
+          senderPhone: senderPhone || null,
           businessName,
           timestamp: new Date().toISOString()
         }
