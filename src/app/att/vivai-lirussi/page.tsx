@@ -17,7 +17,7 @@ const BUSINESS = {
 	name: 'Vivai Lirussi Denis',
 	addressLine: 'Via Villanova, 11, 30030 Vigonovo VE',
 	mapsUrl: 'https://www.google.com/maps?q=Via+Villanova,+11,+30030+Vigonovo+VE',
-	phone: '049 646225',
+	phone: '049 983 0395',
 };
 
 const IMAGES: { src: string; alt: string }[] = [

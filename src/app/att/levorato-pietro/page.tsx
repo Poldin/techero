@@ -18,7 +18,7 @@ const BUSINESS = {
 	owner: 'Levorato Pietro',
 	addressLine: 'Via Grandi, 56, 35010 Vigonza (PD)',
 	mapsUrl: 'https://www.google.com/maps?q=Via+Grandi,+56,+35010+Vigonza+PD',
-	phone: '049 503 2847', // Placeholder phone number
+	phone: '049 646225', // Placeholder phone number
 	email: 'levoratovivai@legalmail.it',
 	vatNumber: '04454750284',
 	fiscalCode: '04454750284',
