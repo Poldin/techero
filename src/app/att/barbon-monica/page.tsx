@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Barbon Monica',
@@ -283,6 +284,12 @@ export default function BarbonMonicaPage() {
 							</ul>
 							<p className="text-xs text-gray-500 mt-3">* Aperta anche la domenica mattina. Gli orari potrebbero variare durante le festività.</p>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>

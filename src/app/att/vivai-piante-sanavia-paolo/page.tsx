@@ -12,12 +12,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Vivai Piante Sanavia Paolo',
 	addressLine: 'Via Celeseo, 4, 30030 Vigonovo VE',
 	mapsUrl: 'https://www.google.com/maps?q=Via+Celeseo,+4,+30030+Vigonovo+VE',
 	phone: '049 983 1961', // set by client
+	email: 'info@sanaviapaolo.it', // Email placeholder
 };
 
 const IMAGES: { src: string; alt: string }[] = [
@@ -207,6 +209,12 @@ export default function VivaioSanaviaPage() {
 								})}
 							</ul>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>

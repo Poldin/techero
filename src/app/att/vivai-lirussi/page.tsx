@@ -12,12 +12,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Vivai Lirussi Denis',
 	addressLine: 'Via Villanova, 11, 30030 Vigonovo VE',
 	mapsUrl: 'https://www.google.com/maps?q=Via+Villanova,+11,+30030+Vigonovo+VE',
 	phone: '049 983 0395',
+	email: 'info@lirussivivaio.it', // Email placeholder
 };
 
 const IMAGES: { src: string; alt: string }[] = [
@@ -212,6 +214,12 @@ export default function VivaioLirussiPage() {
 							</ul>
 							<p className="text-xs text-gray-500 mt-3">* Gli orari potrebbero variare durante i periodi festivi. Si consiglia di chiamare per conferma.</p>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>

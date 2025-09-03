@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Vivai Pannizzolo',
@@ -262,6 +263,12 @@ export default function VivaiPannizzoloPage() {
 							</ul>
 							<p className="text-xs text-gray-500 mt-3">* Gli orari potrebbero variare per interventi esterni. Si consiglia di chiamare per appuntamenti.</p>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>

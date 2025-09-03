@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Supermarket dei Fiori',
@@ -263,6 +264,12 @@ export default function SupermarketDeiFioriPage() {
 							</ul>
 							<p className="text-xs text-gray-500 mt-3">* Aperto tutti i giorni per la vostra comodità. Gli orari potrebbero variare durante le festività.</p>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>

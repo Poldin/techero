@@ -15,34 +15,34 @@ import {
 import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
-	name: 'Società Agricola Levorato S.S.',
-	owner: 'Levorato Pietro',
-	addressLine: 'Via Grandi, 56, 35010 Vigonza (PD)',
-	mapsUrl: 'https://www.google.com/maps?q=Via+Grandi,+56,+35010+Vigonza+PD',
-	phone: '049 646225', // Placeholder phone number
-	email: 'levoratovivai@legalmail.it',
-	vatNumber: '04454750284',
-	fiscalCode: '04454750284',
+	name: 'Azienda Agricola Bincoletto Paolo',
+	owner: 'Bincoletto Paolo',
+	addressLine: 'Via Cavin di Sala, 131, 30035 Mirano VE',
+	mapsUrl: 'https://www.google.com/maps?q=Via+Cavin+di+Sala,+131,+30035+Mirano+VE',
+	phone: '333 201 2540',
+	email: 'info@bincolettopaolovivaio.it', // Email placeholder
+	vatNumber: '03008260279',
+	fiscalCode: 'BNCPLA75B08L736U',
 };
 
 const IMAGES: { src: string; alt: string }[] = [
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(1).jpg', alt: 'Società Agricola Levorato - vivaio interno con fiori e piante' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(2).jpg', alt: 'Società Agricola Levorato - collezione piante da interno' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(1).jpg', alt: 'Società Agricola Levorato - giardino esterno con piante' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(2).jpg', alt: 'Società Agricola Levorato - area esterna del vivaio' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino.jpg', alt: 'Società Agricola Levorato - spazi verdi esterni' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20di%20giorno%20con%20vista%20sul%20campo%20esterno.jpg', alt: 'Società Agricola Levorato - vista panoramica del campo esterno' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(1).jpg', alt: 'Azienda Agricola Bincoletto Paolo - produzione piante ornamentali e da giardino' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(2).jpg', alt: 'Azienda Agricola Bincoletto Paolo - ampia selezione di piante ornamentali' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(1).jpg', alt: 'Azienda Agricola Bincoletto Paolo - coltivazione in piena aria' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(2).jpg', alt: 'Azienda Agricola Bincoletto Paolo - gestione familiare da generazioni' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino.jpg', alt: 'Azienda Agricola Bincoletto Paolo - tradizione agricola nel Miranese' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20di%20giorno%20con%20vista%20sul%20campo%20esterno.jpg', alt: 'Azienda Agricola Bincoletto Paolo - panoramica dell\'azienda a Mirano' },
 ];
 
-// Orari settimanali (Lunedì -> Domenica) - orari standard per vivai
-const HOURS: { day: string; open?: string; close?: string }[] = [
-	{ day: 'Lunedì', open: '08:00', close: '18:00' },
-	{ day: 'Martedì', open: '08:00', close: '18:00' },
-	{ day: 'Mercoledì', open: '08:00', close: '18:00' },
-	{ day: 'Giovedì', open: '08:00', close: '18:00' },
-	{ day: 'Venerdì', open: '08:00', close: '18:00' },
-	{ day: 'Sabato', open: '08:00', close: '12:00' },
-	{ day: 'Domenica' },
+// Orari tipici per azienda agricola familiare - aperta tutto l'anno
+const HOURS: { day: string; open?: string; close?: string; afternoon?: { open: string; close: string } }[] = [
+	{ day: 'Lunedì', open: '08:00', close: '12:00', afternoon: { open: '14:30', close: '18:30' } },
+	{ day: 'Martedì', open: '08:00', close: '12:00', afternoon: { open: '14:30', close: '18:30' } },
+	{ day: 'Mercoledì', open: '08:00', close: '12:00', afternoon: { open: '14:30', close: '18:30' } },
+	{ day: 'Giovedì', open: '08:00', close: '12:00', afternoon: { open: '14:30', close: '18:30' } },
+	{ day: 'Venerdì', open: '08:00', close: '12:00', afternoon: { open: '14:30', close: '18:30' } },
+	{ day: 'Sabato', open: '08:00', close: '12:00', afternoon: { open: '14:30', close: '18:30' } },
+	{ day: 'Domenica', open: '09:00', close: '12:00' }, // Domenica mattina solo su appuntamento
 ];
 
 function minutesUntilClose(now: Date): { isOpen: boolean; minutesLeft: number; closeTimeLabel?: string } {
@@ -52,17 +52,36 @@ function minutesUntilClose(now: Date): { isOpen: boolean; minutesLeft: number; c
 	if (!today.open || !today.close) {
 		return { isOpen: false, minutesLeft: 0 };
 	}
+
+	const currentHour = now.getHours();
+	const currentMinute = now.getMinutes();
+	const currentTime = currentHour * 60 + currentMinute;
+
+	// Morning hours
 	const [openH, openM] = today.open.split(':').map(Number);
 	const [closeH, closeM] = today.close.split(':').map(Number);
-	const openDate = new Date(now);
-	openDate.setHours(openH, openM, 0, 0);
-	const closeDate = new Date(now);
-	closeDate.setHours(closeH, closeM, 0, 0);
-	if (now >= openDate && now < closeDate) {
-		const diffMs = closeDate.getTime() - now.getTime();
-		const minutesLeft = Math.max(0, Math.round(diffMs / 60000));
+	const openTime = openH * 60 + openM;
+	const closeTime = closeH * 60 + closeM;
+
+	// Check if currently in morning hours
+	if (currentTime >= openTime && currentTime < closeTime) {
+		const minutesLeft = closeTime - currentTime;
 		return { isOpen: true, minutesLeft, closeTimeLabel: today.close };
 	}
+
+	// Check afternoon hours if available
+	if (today.afternoon) {
+		const [aftOpenH, aftOpenM] = today.afternoon.open.split(':').map(Number);
+		const [aftCloseH, aftCloseM] = today.afternoon.close.split(':').map(Number);
+		const aftOpenTime = aftOpenH * 60 + aftOpenM;
+		const aftCloseTime = aftCloseH * 60 + aftCloseM;
+
+		if (currentTime >= aftOpenTime && currentTime < aftCloseTime) {
+			const minutesLeft = aftCloseTime - currentTime;
+			return { isOpen: true, minutesLeft, closeTimeLabel: today.afternoon.close };
+		}
+	}
+
 	return { isOpen: false, minutesLeft: 0 };
 }
 
@@ -74,13 +93,13 @@ function formatMinutes(mins: number): string {
 	return `${m}m`;
 }
 
-export default function LevatoPage() {
+export default function AziendaAgricolaBincolettoPaoloPage() {
 	const phoneHref = BUSINESS.phone.replace(/\s+/g, '');
 	const status = minutesUntilClose(new Date());
 	const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 	const [currentEmoji, setCurrentEmoji] = useState(0);
 
-	const emojis = ['🌿', '🌾', '🌺', '🌻', '🌱', '🌳', '🌸', '🌼'];
+	const emojis = ['🌱', '🌿', '🍃', '🌾', '🌳', '🌺', '🏡', '🚜'];
 
 	// Plugin autoplay per il carosello
 	const plugin = useRef(
@@ -96,19 +115,18 @@ export default function LevatoPage() {
 	}, [emojis.length]);
 
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-amber-50 text-gray-900">
+		<div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-emerald-50 text-gray-900">
 			{/* Header / Logo */}
 			<header className="sticky top-0 z-30 backdrop-blur bg-white/70 border-b">
 				<div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
 					<div className="text-2xl sm:text-3xl font-bold tracking-wide flex items-center gap-2">
-						<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">🌾 Società Agricola</span> 
-						<span className="text-gray-800 font-extrabold italic">Levorato</span>
-						<span className="bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">S.S.</span>
+						<span className="bg-gradient-to-r from-green-600 to-emerald-800 bg-clip-text text-transparent">🌱 Azienda Agricola</span> 
+						<span className="text-gray-800 font-extrabold italic">Bincoletto Paolo</span>
 					</div>
 					<div className="hidden sm:flex items-center gap-3 text-sm">
-						<Link href={BUSINESS.mapsUrl} target="_blank" className="text-blue-700 hover:text-blue-800 underline-offset-2 hover:underline">Indicazioni</Link>
+						<Link href={BUSINESS.mapsUrl} target="_blank" className="text-green-700 hover:text-green-800 underline-offset-2 hover:underline">Indicazioni</Link>
 						{BUSINESS.phone ? (
-							<a href={`tel:${phoneHref}`} className="inline-flex items-center gap-2 rounded-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 transition-colors">
+							<a href={`tel:${phoneHref}`} className="inline-flex items-center gap-2 rounded-full bg-green-600 text-white px-4 py-2 hover:bg-green-700 transition-colors">
 								<Phone size={18} />
 								Chiama
 							</a>
@@ -135,7 +153,7 @@ export default function LevatoPage() {
 								<CarouselItem key={index}>
 									<div className="p-1 sm:p-2">
 										<div 
-											className="aspect-[3/4] sm:aspect-[16/9] rounded-lg overflow-hidden shadow-md bg-blue-100 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+											className="aspect-[3/4] sm:aspect-[16/9] rounded-lg overflow-hidden shadow-md bg-green-100 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
 											onClick={() => setFullscreenImage(img.src)}
 										>
 											<Image
@@ -162,16 +180,16 @@ export default function LevatoPage() {
 						<h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900">{BUSINESS.name}</h1>
 						<div className="space-y-4">
 							<p className="text-xl text-gray-800 leading-relaxed">
-								Nel cuore di Vigonza, la Società Agricola Levorato S.S. rappresenta un punto di riferimento nel settore florovivaistico padovano, specializzata nella riproduzione e coltivazione di piante ornamentali di alta qualità.
+								Situata nel cuore del territorio del Miranese in Via Cavin di Sala 131 a Mirano, l&apos;Azienda Agricola Bincoletto Paolo rappresenta una tradizione familiare nella produzione di piante ornamentali e da giardino, operando con passione e dedizione tutto l&apos;anno.
 							</p>
 							<p className="text-lg text-gray-700 leading-relaxed">
-								Con sede in Via Grandi 56, la nostra azienda agricola combina tradizione familiare e innovazione tecnologica per offrire piante robuste e ben acclimatate. La nostra specializzazione nella riproduzione delle piante garantisce varietà selezionate e di qualità superiore per privati e professionisti del settore.
+								La nostra azienda a conduzione familiare si distingue per la specializzazione nella coltivazione di fiori in piena aria e nella produzione di piante ornamentali di alta qualità. Con anni di esperienza nel settore florovivaistico, garantiamo prodotti freschi e curati con metodi tradizionali tramandati di generazione in generazione.
 							</p>
 							<p className="text-lg text-gray-700 leading-relaxed">
-								Che tu sia un appassionato di giardinaggio alla ricerca della pianta perfetta per il tuo spazio verde o un professionista del paesaggismo, presso la nostra azienda troverai varietà accuratamente selezionate, consulenza esperta e la qualità che solo l&apos;esperienza nel settore agricolo può offrire.
+								Aperta tutto l&apos;anno per soddisfare le esigenze dei nostri clienti, l&apos;Azienda Agricola Bincoletto Paolo offre un&apos;ampia selezione di piante ornamentali, fiori stagionali e piante da giardino. La nostra produzione locale garantisce freschezza e qualità superiore, supportata da una consulenza personalizzata per ogni tipo di esigenza.
 							</p>
 							<p className="text-lg text-gray-700 leading-relaxed">
-								La nostra posizione strategica a Vigonza ci permette di servire efficacemente tutto il territorio padovano e veneto, garantendo sempre la freschezza e la vitalità delle nostre piante. Ogni esemplare è curato nei minimi dettagli per assicurare la massima soddisfazione del cliente.
+								La posizione strategica nel Miranese e la gestione familiare ci permettono di mantenere un rapporto diretto e personale con i clienti, offrendo prodotti coltivati con cura e attenzione ai dettagli. La nostra passione per l&apos;agricoltura si riflette nella qualità delle piante che coltiviamo e nella soddisfazione dei nostri clienti.
 							</p>
 						</div>
 					</div>
@@ -181,31 +199,37 @@ export default function LevatoPage() {
 							<p className="font-semibold">{BUSINESS.addressLine}</p>
 							<div className="mt-4">
 								<p className="text-sm text-gray-500">Telefono</p>
-								<a href={`tel:${phoneHref}`} className="font-semibold text-blue-700 hover:underline">{BUSINESS.phone}</a>
+								<a href={`tel:${phoneHref}`} className="font-semibold text-green-700 hover:underline">{BUSINESS.phone}</a>
+							</div>
+							<div className="mt-4">
+								<p className="text-sm text-gray-500">Titolare</p>
+								<p className="font-semibold text-gray-700">{BUSINESS.owner}</p>
 							</div>
 							<div className="mt-4">
 								<p className="text-sm text-gray-500">Email</p>
-								<a href={`mailto:${BUSINESS.email}`} className="font-semibold text-blue-700 hover:underline text-sm">{BUSINESS.email}</a>
+								<a href={`mailto:${BUSINESS.email}`} className="font-semibold text-green-700 hover:underline text-sm">{BUSINESS.email}</a>
 							</div>
 							<div className="mt-4 flex flex-col gap-3">
-								<Link href={BUSINESS.mapsUrl} target="_blank" className="inline-flex justify-center items-center rounded-full border border-blue-200 bg-blue-50 text-blue-800 px-4 py-2 hover:bg-blue-100">Apri su Google Maps</Link>
+								<Link href={BUSINESS.mapsUrl} target="_blank" className="inline-flex justify-center items-center rounded-full border border-green-200 bg-green-50 text-green-800 px-4 py-2 hover:bg-green-100">Apri su Google Maps</Link>
 								{BUSINESS.phone ? (
-									<a href={`tel:${phoneHref}`} className="inline-flex justify-center items-center rounded-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700">Chiama ora</a>
+									<a href={`tel:${phoneHref}`} className="inline-flex justify-center items-center rounded-full bg-green-600 text-white px-4 py-2 hover:bg-green-700">Chiama ora</a>
 								) : (
 									<span className="text-xs text-gray-500">Numero in aggiornamento</span>
 								)}
 							</div>
 						</div>
 
+
+
 						{/* Orari */}
 						<div className="mt-6 rounded-2xl border bg-white p-5 shadow-md">
 							<div className="flex items-center gap-2 mb-3">
-								<Clock className="text-blue-600" size={18} />
+								<Clock className="text-green-600" size={18} />
 								<p className="font-semibold">Orari</p>
 							</div>
 							<div className="mb-4 text-sm">
 								{status.isOpen ? (
-									<p className="text-blue-700 font-medium">Aperto ora, chiude tra {formatMinutes(status.minutesLeft)} (alle {status.closeTimeLabel})</p>
+									<p className="text-green-700 font-medium">Aperto ora, chiude tra {formatMinutes(status.minutesLeft)} (alle {status.closeTimeLabel})</p>
 								) : (
 									<p className="text-gray-600 font-medium">Chiuso ora</p>
 								)}
@@ -216,12 +240,18 @@ export default function LevatoPage() {
 									return (
 										<li key={h.day} className={`flex items-center justify-between py-2 ${isToday ? 'font-semibold text-gray-900' : 'text-gray-700'}`}>
 											<span className={isToday ? 'italic' : ''}>{h.day}</span>
-											<span>{h.open && h.close ? `${h.open} - ${h.close}` : 'Chiuso'}</span>
+											<span>
+												{h.open && h.close ? (
+													h.afternoon ? 
+														`${h.open}-${h.close}, ${h.afternoon.open}-${h.afternoon.close}` 
+														: `${h.open}-${h.close}`
+												) : h.day === 'Domenica' ? 'Su appuntamento' : 'Chiuso'}
+											</span>
 										</li>
 									);
 								})}
 							</ul>
-							<p className="text-xs text-gray-500 mt-3">* Gli orari potrebbero variare durante i periodi festivi. Si consiglia di chiamare per conferma.</p>
+							<p className="text-xs text-gray-500 mt-3">* Azienda aperta tutto l&apos;anno. Domenica mattina su appuntamento. Si consiglia di chiamare per conferma.</p>
 						</div>
 
 						{/* Contact Form */}
@@ -240,19 +270,18 @@ export default function LevatoPage() {
 						{/* Logo e contatti */}
 						<div className="text-center">
 							<div className="text-lg font-bold mb-2 flex items-center justify-center gap-2">
-								<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">🌾 Società Agricola</span> 
-								<span className="text-gray-800 font-extrabold italic">Levorato</span>
-								<span className="bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent">S.S.</span>
+								<span className="bg-gradient-to-r from-green-600 to-emerald-800 bg-clip-text text-transparent">🌱 Azienda Agricola</span> 
+								<span className="text-gray-800 font-extrabold italic">Bincoletto Paolo</span>
 							</div>
 							<div className="text-sm text-gray-600 space-y-1">
 								<p>{BUSINESS.addressLine}</p>
 								<p>
-									<a href={`tel:${phoneHref}`} className="text-blue-700 hover:underline">
+									<a href={`tel:${phoneHref}`} className="text-green-700 hover:underline">
 										{BUSINESS.phone}
 									</a>
 								</p>
 								<p>
-									<a href={`mailto:${BUSINESS.email}`} className="text-blue-700 hover:underline text-sm">
+									<a href={`mailto:${BUSINESS.email}`} className="text-green-700 hover:underline text-sm">
 										{BUSINESS.email}
 									</a>
 								</p>
@@ -304,7 +333,7 @@ export default function LevatoPage() {
 
 			{/* Floating Call Button */}
 			{BUSINESS.phone && (
-				<a href={`tel:${phoneHref}`} className="fixed bottom-5 right-5 z-40 inline-flex items-center justify-center rounded-full bg-blue-600 text-white w-14 h-14 shadow-lg hover:bg-blue-700 active:scale-95 transition">
+				<a href={`tel:${phoneHref}`} className="fixed bottom-5 right-5 z-40 inline-flex items-center justify-center rounded-full bg-green-600 text-white w-14 h-14 shadow-lg hover:bg-green-700 active:scale-95 transition">
 					<Phone />
 				</a>
 			)}

@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Fioreria al Tulipano',
@@ -268,6 +269,12 @@ export default function FioreriaAlTulipanoPage() {
 							</ul>
 							<p className="text-xs text-gray-500 mt-3">* Aperta tutti i giorni per la vostra comodità. Gli orari potrebbero variare durante le festività.</p>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>

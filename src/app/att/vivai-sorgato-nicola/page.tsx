@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Vivai Piante e Giardini di Sorgato Nicola',
@@ -283,6 +284,12 @@ export default function VivaiSorgatoNicolaPage() {
 							</ul>
 							<p className="text-xs text-gray-500 mt-3">* Sabato su appuntamento nei mesi di luglio e agosto. Si consiglia di chiamare per conferma.</p>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>

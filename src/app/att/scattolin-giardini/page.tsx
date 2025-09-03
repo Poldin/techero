@@ -12,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ContactForm from "@/components/ContactForm";
 
 const BUSINESS = {
 	name: 'Scattolin Giardini',
@@ -243,6 +244,12 @@ export default function ScattolinGiardiniPage() {
 							</ul>
 							<p className="text-xs text-gray-500 mt-3">* Orari prolungati per la vostra comodità. Chiuso nei weekend per interventi esterni.</p>
 						</div>
+
+						{/* Contact Form */}
+						<ContactForm 
+							recipientEmail={BUSINESS.email}
+							businessName={BUSINESS.name}
+						/>
 					</aside>
 				</section>
 			</main>
