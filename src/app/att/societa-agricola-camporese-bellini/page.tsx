@@ -25,14 +25,12 @@ const BUSINESS = {
 };
 
 const IMAGES: { src: string; alt: string }[] = [
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(1).jpg', alt: 'Società Agricola Camporese Bellini - vista delle coltivazioni floreali' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(2).jpg', alt: 'Società Agricola Camporese Bellini - area di produzione fiori' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(3).jpg', alt: 'Società Agricola Camporese Bellini - serre e impianti di coltivazione' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(4).jpg', alt: 'Società Agricola Camporese Bellini - campo di fiori colorati' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(5).jpg', alt: 'Società Agricola Camporese Bellini - varietà di piante ornamentali' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(6).jpg', alt: 'Società Agricola Camporese Bellini - produzione specializzata in fiori' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(7).jpg', alt: 'Società Agricola Camporese Bellini - spazi esterni dell\'azienda agricola' },
-	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/unnamed%20(8).jpg', alt: 'Società Agricola Camporese Bellini - panoramica delle strutture produttive' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(1).jpg', alt: 'Società Agricola Camporese Bellini - vivaio interno con fiori e piante' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20(2).jpg', alt: 'Società Agricola Camporese Bellini - collezione piante da interno' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(1).jpg', alt: 'Società Agricola Camporese Bellini - giardino esterno con piante' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino%20(2).jpg', alt: 'Società Agricola Camporese Bellini - area esterna del vivaio' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20all\'esterno%20giardino.jpg', alt: 'Società Agricola Camporese Bellini - spazi verdi esterni' },
+	{ src: 'https://ftsvghosbgqcsbdiibgv.supabase.co/storage/v1/object/public/images/immagine%20di%20un%20vivaio%20di%20fiori%20e%20piante%20di%20giorno%20con%20vista%20sul%20campo%20esterno.jpg', alt: 'Società Agricola Camporese Bellini - vista panoramica del campo esterno' },
 ];
 
 // Orari settimanali basati sui dati Google Maps
