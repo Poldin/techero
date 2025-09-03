@@ -1,9 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Phone, Clock, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Phone, Clock, X } from 'lucide-react';
 import Image from 'next/image';
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const BUSINESS = {
 	name: 'Vivai Piante Sanavia Paolo',
@@ -63,17 +71,13 @@ export default function VivaioSanaviaPage() {
 	const status = minutesUntilClose(new Date());
 	const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 	const [currentEmoji, setCurrentEmoji] = useState(0);
-	const [currentImage, setCurrentImage] = useState(0);
 
 	const emojis = ['🚀', '⚡', '🔥', '✨', '💎', '🎯', '🌟', '🎨'];
 
-	// Auto-scroll del carosello immagini
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrentImage((prev) => (prev + 1) % IMAGES.length);
-		}, 4000);
-		return () => clearInterval(interval);
-	}, []);
+	// Plugin autoplay per il carosello
+	const plugin = useRef(
+		Autoplay({ delay: 4000, stopOnInteraction: true })
+	);
 
 	// Auto-rotazione emoji
 	useEffect(() => {
@@ -82,14 +86,6 @@ export default function VivaioSanaviaPage() {
 		}, 3000);
 		return () => clearInterval(interval);
 	}, [emojis.length]);
-
-	const nextImage = () => {
-		setCurrentImage((prev) => (prev + 1) % IMAGES.length);
-	};
-
-	const prevImage = () => {
-		setCurrentImage((prev) => (prev - 1 + IMAGES.length) % IMAGES.length);
-	};
 
 
 
@@ -113,93 +109,43 @@ export default function VivaioSanaviaPage() {
 				</div>
 			</header>
 
-			<main className="mx-auto max-w-6xl px-4">
+			<main className="mx-auto w-95vw sm:max-w-6xl px-2 sm:px-4">
 				{/* Hero Carousel */}
 				<section className="py-6 sm:py-10">
-					<div className="max-w-5xl mx-auto relative">
-						<div className="flex items-center justify-center">
-							<button
-								onClick={prevImage}
-								className="absolute left-0 z-20 rounded-full shadow-xl bg-white/80 backdrop-blur-sm border-2 hover:border-emerald-500/50 hover:bg-emerald-50/50 transition-all duration-300 hover:scale-110 p-3"
-							>
-								<ChevronLeft className="w-5 h-5" />
-							</button>
-
-							{/* Container con overflow hidden per animazioni smooth */}
-							<div className="w-full max-w-4xl mx-16 min-h-[300px] relative overflow-hidden">
-								<div 
-									className="flex transition-transform duration-700 ease-in-out"
-									style={{ transform: `translateX(-${currentImage * 100}%)` }}
-								>
-									{IMAGES.map((img, index) => (
-										<div key={index} className="w-full flex-shrink-0">
-											<div className="mx-2">
-												<div 
-													className="aspect-[16/9] rounded-lg overflow-hidden shadow-md bg-emerald-100 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
-													onClick={() => setFullscreenImage(img.src)}
-												>
-													<Image
-														src={img.src}
-														alt={img.alt}
-														loading="lazy"
-														decoding="async"
-														className="h-full w-full object-cover"
-													/>
-												</div>
-											</div>
+					<Carousel
+						plugins={[plugin.current]}
+						className="w-full max-w-[100vw] sm:max-w-4xl mx-auto"
+						onMouseEnter={plugin.current.stop}
+						onMouseLeave={plugin.current.reset}
+						opts={{
+							align: "center",
+							loop: true,
+						}}
+					>
+						<CarouselContent>
+							{IMAGES.map((img, index) => (
+								<CarouselItem key={index}>
+									<div className="p-1 sm:p-2">
+										<div 
+											className="aspect-[3/4] sm:aspect-[16/9] rounded-lg overflow-hidden shadow-md bg-emerald-100 cursor-pointer hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+											onClick={() => setFullscreenImage(img.src)}
+										>
+											<Image
+												src={img.src}
+												alt={img.alt}
+												width={800}
+												height={450}
+												className="h-full w-full object-cover"
+											/>
 										</div>
-									))}
-								</div>
-							</div>
-
-							<button
-								onClick={nextImage}
-								className="absolute right-0 z-20 rounded-full shadow-xl bg-white/80 backdrop-blur-sm border-2 hover:border-emerald-500/50 hover:bg-emerald-50/50 transition-all duration-300 hover:scale-110 p-3"
-							>
-								<ChevronRight className="w-5 h-5" />
-							</button>
-						</div>
-
-						{/* Indicatori migliorati */}
-						<div className="flex justify-center mt-8 gap-3">
-							{IMAGES.map((_, index) => (
-								<button
-									key={index}
-									onClick={() => setCurrentImage(index)}
-									className={`relative transition-all duration-300 ${
-										index === currentImage 
-											? "w-8 h-3" 
-											: "w-3 h-3 hover:w-4"
-									}`}
-								>
-									<div className={`w-full h-full rounded-full transition-all duration-300 ${
-										index === currentImage 
-											? "bg-emerald-600 shadow-lg shadow-emerald-600/40" 
-											: "bg-gray-300 hover:bg-gray-400"
-									}`}></div>
-									
-									{/* Ring effect per indicatore attivo */}
-									{index === currentImage && (
-										<div className="absolute inset-0 rounded-full border-2 border-emerald-600/30 scale-150 animate-pulse"></div>
-									)}
-								</button>
+									</div>
+								</CarouselItem>
 							))}
-						</div>
-
-						{/* Progress bar */}
-						<div className="mt-6 max-w-md mx-auto">
-							<div className="w-full bg-gray-200 rounded-full h-1">
-								<div 
-									className="bg-gradient-to-r from-emerald-600 to-emerald-500 h-1 rounded-full transition-all duration-700 ease-out"
-									style={{ width: `${((currentImage + 1) / IMAGES.length) * 100}%` }}
-								></div>
-							</div>
-							<p className="text-center text-sm text-gray-500 mt-2">
-								{currentImage + 1} di {IMAGES.length}
-							</p>
-						</div>
-					</div>
-					<p className="text-xs text-gray-500 mt-4 text-center">Clicca su un&apos;immagine per ingrandirla.</p>
+						</CarouselContent>
+						<CarouselPrevious className="hidden sm:flex" />
+						<CarouselNext className="hidden sm:flex" />
+					</Carousel>
+					<p className="text-xs text-gray-500 mt-4 text-center">Le immagini scorrono automaticamente. Clicca per ingrandire.</p>
 				</section>
 
 				{/* Copy and CTAs */}
@@ -318,6 +264,7 @@ export default function VivaioSanaviaPage() {
 									transform: scale(1) rotate(0deg);
 								}
 							}
+
 						`}</style>
 					</div>
 				</div>
